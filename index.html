@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlética Tormenta - Construindo a Imortalidade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-principal: #3a0e2a; /* Vermelho Púrpura Escuro / Vinho do logo */
+            --cor-secundaria: #d4af37; /* Amarelo Ocre / Dourado do logo */
+            --cor-texto-claro: #f8f8f8; /* Quase branco */
+            --cor-texto-escuro: #1a1a1a; /* Preto */
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header - Introdução */
+        header {
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        header .logo-container {
+            margin-bottom: 20px;
+        }
+
+        header .logo {
+            max-width: 250px; /* Tamanho do logo ajustável */
+            height: auto;
+            border-radius: 5%; /* Leve arredondamento para combinar com o círculo do logo */
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5); /* Sombra dourada */
+        }
+
+        header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            color: var(--cor-secundaria);
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        }
+
+        header p {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--cor-texto-claro);
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        section:nth-of-type(even) { /* Para alternar cores de fundo seções */
+            background-color: var(--cor-principal);
+        }
+
+        section:nth-of-type(odd) {
+            background-color: #4a1336; /* Um tom ligeiramente mais claro ou mais escuro do principal */
+        }
+
+        section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8em;
+            color: var(--cor-secundaria);
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        section p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            color: var(--cor-texto-claro);
+        }
+
+        section ul {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        section ul li {
+            background-color: rgba(212, 175, 55, 0.1); /* Um toque da cor secundária */
+            margin-bottom: 10px;
+            padding: 15px;
+            border-left: 5px solid var(--cor-secundaria);
+            border-radius: 5px;
+            font-size: 1.05em;
+        }
+
+        /* Seção Identidade */
+        .identidade-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .identidade-item {
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .identidade-item h3 {
+            color: var(--cor-secundaria);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .identidade-item p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+        .identidade-item .cor-box {
+            width: 50px;
+            height: 50px;
+            margin: 10px auto 15px auto;
+            border-radius: 5px;
+            border: 1px solid var(--cor-secundaria);
+        }
+
+        /* Seção Galeria (Exemplo) */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px; /* Altura fixa para as imagens da galeria */
+            object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Footer - Contato */
+        footer {
+            background-color: var(--cor-texto-escuro);
+            color: var(--cor-texto-claro);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer h3 {
+            color: var(--cor-secundaria);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--cor-texto-claro);
+            font-size: 2em;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--cor-secundaria);
+        }
+
+        footer p {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1.2em;
+            }
+            section h2 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            section {
+                padding: 40px 0;
+            }
+            section h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+  <nav>
+    <a href="estatuto.html">Ver Estatuto Completo</a>
+</nav>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="tormenta_logo.png" alt="Logo Atlética Tormenta" class="logo"> 
+            </div>
+            <h1>ATLÉTICA TORMENTA</h1>
+            <p>"Construindo a imortalidade"</p>
+        </div>
+    </header>
+
+    <section id="sobre">
+        <div class="container">
+            <h2>Nossa História</h2>
+            <p>A Atlética Tormenta nasceu da união de seis poderosas atléticas - Soberana, Thenebrosa, Reativa, Zangada, Invocados e Radioativa - oriundas do Centro de Tecnologia e Geociências (CTG), Departamento de Energia Nuclear (DEN) e do Departamento de Engenharia Química (DEQ) da Universidade Federal de Pernambuco (UFPE).</p>
+            <p>Nosso propósito é fortalecer o esporte universitário, integrar a comunidade acadêmica e representar com excelência nossos cursos e a instituição, forjando um legado de união e vitórias.</p>
+            
+            <h2>Nossa Missão</h2>
+            <ul>
+                <li>Promover e incentivar a prática desportiva em diversas modalidades.</li>
+                <li>Integrar os estudantes através de atividades esportivas, sociais e culturais.</li>
+                <li>Representar a UFPE em competições universitárias em todos os níveis.</li>
+                <li>Fomentar a união, disciplina e o espírito esportivo entre nossos membros.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="identidade">
+        <div class="container">
+            <h2>Identidade Tormenta</h2>
+            <div class="identidade-grid">
+                <div class="identidade-item">
+                    <h3>Nossas Cores</h3>
+                    <p>Cada cor da Tormenta carrega um significado profundo:</p>
+                    <p><strong>Preto:</strong> Simboliza força inabalável e determinação.</p>
+                    <div class="cor-box" style="background-color: var(--cor-texto-escuro);"></div>
+                    <p><strong>Vermelho Púrpura:</strong> Representa a paixão, a realeza e a intensidade do esporte.</p>
+                    <div class="cor-box" style="background-color: var(--cor-principal);"></div>
+                    <p><strong>Amarelo Ocre:</strong> Remete à energia, calor e à resiliência de nossa comunidade.</p>
+                    <div class="cor-box" style="background-color: var(--cor-secundaria);"></div>
+                </div>
+                <div class="identidade-item">
+                    <h3>Nosso Mascote: Hefesto</h3>
+                    <p>Hefesto, o deus grego da forja, é nosso poderoso mascote.</p>
+                    <p>Ele simboliza o trabalho árduo, a criação, a resiliência e a habilidade de transformar o bruto em algo valioso.</p>
+                    <p>Assim como Hefesto forja ferramentas e obras de arte, a Atlética Tormenta forja atletas e a união inquebrável de sua comunidade, construindo um futuro imortal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <div class="container">
+            <h2>Nossos Momentos</h2>
+            <p>Confira alguns registros da nossa paixão pelo esporte e da união da família Tormenta!</p>
+            <div class="gallery">
+                <img src="placeholder1.jpg" alt="Atletas Tormenta 1">
+                <img src="placeholder2.jpg" alt="Atletas Tormenta 2">
+                <img src="placeholder3.jpg" alt="Evento Tormenta 1">
+                <img src="placeholder4.jpg" alt="Evento Tormenta 2">
+                <img src="placeholder5.jpg" alt="Treino Tormenta 1">
+                <img src="placeholder6.jpg" alt="Treino Tormenta 2">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>Faça Parte da Tormenta</h3>
+            <p>Siga-nos nas redes sociais e fique por dentro de todas as novidades, eventos e conquistas!</p>
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="Instagram"><img src="https://img.icons8.com/ios-filled/50/d4af37/instagram-new.png" alt="Instagram" width="30"></a>
+                <a href="#" target="_blank" aria-label="Facebook"><img src="https://img.icons8.com/ios-filled/50/d4af37/facebook-new.png" alt="Facebook" width="30"></a>
+                <a href="#" target="_blank" aria-label="Twitter"><img src="https://img.icons8.com/ios-filled/50/d4af37/twitter.png" alt="Twitter" width="30"></a>
+            </div>
+            <p>&copy; 2025 Atlética Tormenta. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
