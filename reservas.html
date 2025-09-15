@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Camisas - Atlética Tormenta</title>
+    <title>Reserva - Atlética Tormenta</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,13 +24,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
+            text-align: center;
         }
         .container {
             width: 90%;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
+            max-width: 600px;
+            padding: 40px;
             background-color: #4a1336;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
@@ -38,119 +39,34 @@
         h1 {
             font-family: 'Oswald', sans-serif;
             color: var(--cor-secundaria);
-            text-align: center;
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 20px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
         }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        input, select {
-            padding: 10px;
-            border: 1px solid var(--cor-secundaria);
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--cor-texto-claro);
-            font-size: 1em;
-        }
-        select {
-            color: var(--cor-texto-escuro); 
-            background-color: var(--cor-texto-claro);
-        }
-        select option {
-            color: var(--cor-texto-escuro);
-        }
-        input::placeholder {
-            color: rgba(248, 248, 248, 0.5);
-        }
-        .submit-button {
-            padding: 15px;
+        .botao-link {
+            display: inline-block;
+            padding: 15px 30px;
             background-color: var(--cor-secundaria);
             color: var(--cor-texto-escuro);
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .submit-button:hover {
-            background-color: #f0c24f;
-        }
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: var(--cor-secundaria);
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s ease;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        .back-link:hover {
-            color: #f0c24f;
+        .botao-link:hover {
+            background-color: #f0c24f;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Reserva de Camisas</h1>
-        <p>Preencha o formulário abaixo para reservar sua camisa da Atlética. Entraremos em contato em breve para combinar a entrega e o pagamento.</p>
-
-        <form action="https://formspree.io/f/mwpnjvbp" method="POST">
-            <div class="form-group">
-                <label for="nome">Nome Completo:</label>
-                <input type="text" id="nome" name="Nome Completo" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="camisa_tipo">Tipo de Camisa:</label>
-                <select id="camisa_tipo" name="Tipo de Camisa" required>
-                    <option value="">Selecione...</option>
-                    <option value="Atleta">Atleta</option>
-                    <option value="Torcedor">Torcedor</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="nome_camisa">Nome na camisa:</label>
-                <input type="text" id="nome_camisa" name="Nome na camisa">
-            </div>
-
-            <div class="form-group">
-                <label for="numero_camisa">Número da camisa:</label>
-                <input type="number" id="numero_camisa" name="Número da camisa" min="0">
-            </div>
-
-            <div class="form-group">
-                <label for="tamanho">Tamanho da Camisa:</label>
-                <select id="tamanho" name="Tamanho da Camisa" required>
-                    <option value="">Selecione...</option>
-                    <option value="P">P</option>
-                    <option value="M">M</option>
-                    <option value="G">G</option>
-                    <option value="GG">GG</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="contato">Número para contato:</label>
-                <input type="tel" id="contato" name="Número para contato" required>
-            </div>
-
-            <button type="submit" class="submit-button">Enviar Reserva</button>
-        </form>
-
-        <a href="index.html" class="back-link">Voltar para a Página Inicial</a>
+        <h1>Vamos Atormentar!</h1>
+        <p>Pronto para garantir seus produtos e mostrar o estilo da Tormenta?</p>
+        <a href="escolha.html" class="botao-link">Simbora!</a>
     </div>
 </body>
 </html>
