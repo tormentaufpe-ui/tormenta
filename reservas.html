@@ -63,6 +63,15 @@
             color: var(--cor-texto-claro);
             font-size: 1em;
         }
+        /* Correção: Define a cor do texto para o seletor de tamanho */
+        select {
+            color: var(--cor-texto-escuro); 
+            background-color: var(--cor-texto-claro);
+        }
+        /* Correção: Define a cor do texto das opções para o seletor de tamanho */
+        select option {
+            color: var(--cor-texto-escuro);
+        }
         input::placeholder {
             color: rgba(248, 248, 248, 0.5);
         }
@@ -99,7 +108,7 @@
         <h1>Reserva de Camisas</h1>
         <p>Preencha o formulário abaixo para reservar sua camisa da Atlética. Entraremos em contato em breve para combinar a entrega e o pagamento.</p>
 
-        <form action="https://formspree.io/f/mwpnjvbp" method="POST">
+        <form action="https://formspree.io/f/SEU_ID_DO_FORMULARIO" method="POST">
             <div class="form-group">
                 <label for="nome">Nome Completo:</label>
                 <input type="text" id="nome" name="nome" required>
