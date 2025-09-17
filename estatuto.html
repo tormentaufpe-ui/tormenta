@@ -2,85 +2,32 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estatuto Interno - Atlética Tormenta</title>
-
+    <meta name="viewport" content="width=device-width, initial-sclae=1.0">
+    <title>Estatuto - Atlética Tormenta</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Cole aqui todo o conteúdo da tag <style> do seu arquivo index.html para manter a mesma aparência */
         :root {
-            --cor-principal: #3a0e2a; /* Vermelho Púrpura Escuro / Vinho do logo */
-            --cor-secundaria: #d4af37; /* Amarelo Ocre / Dourado do logo */
-            --cor-texto-claro: #f8f8f8; /* Quase branco */
-            --cor-texto-escuro: #1a1a1a; /* Preto */
+            --cor-principal: #3a0e2a;
+            --cor-secundaria: #d4af37;
+            --cor-texto-claro: #f8f8f8;
+            --cor-texto-escuro: #1a1a1a;
         }
-
         body {
             font-family: 'Montserrat', sans-serif;
+            background-color: var(--cor-principal);
+            color: var(--cor-texto-claro);
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            background-color: var(--cor-principal);
-            color: var(--cor-texto-claro);
-            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
-
         .container {
             width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-
-        /* Nav - Navegação */
-        nav {
-            text-align: center;
-            padding: 15px 0;
-            background-color: var(--cor-secundaria);
-        }
-        nav a {
-            color: var(--cor-texto-escuro);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: 2px solid var(--cor-texto-escuro);
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        nav a:hover {
-            background-color: var(--cor-texto-escuro);
-            color: var(--cor-secundaria);
-        }
-
-        /* Header - Introdução */
-        header {
-            background-color: var(--cor-principal);
-            color: var(--cor-texto-claro);
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 3.5em;
-            margin-bottom: 10px;
-            color: var(--cor-secundaria);
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-        }
-
-        header p {
-            font-size: 1.4em;
-            font-weight: 700;
-            color: var(--cor-texto-claro);
-        }
-
-        /* Conteúdo do Estatuto */
-        #estatuto-container {
             max-width: 900px;
             margin: 40px auto;
             padding: 30px;
@@ -88,291 +35,267 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
-
-        #estatuto-container h2 {
+        h1, h2, h3 {
             font-family: 'Oswald', sans-serif;
             color: var(--cor-secundaria);
-            border-bottom: 2px solid var(--cor-secundaria);
-            padding-bottom: 10px;
             margin-top: 30px;
-            margin-bottom: 20px;
-            font-size: 2.2em;
+        }
+        h1 {
             text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
-
-        #estatuto-container h3 {
+        h2 {
+            font-size: 2em;
+            border-bottom: 2px solid var(--cor-secundaria);
+            padding-bottom: 5px;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        p, ul, ol {
+            font-size: 1em;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        .preambulo {
+            text-align: center;
+            font-style: italic;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
             color: var(--cor-secundaria);
-            font-size: 1.6em;
-            margin-top: 25px;
-            margin-bottom: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
         }
-        
-        #estatuto-container p, #estatuto-container li {
-            font-size: 1.1em;
-            color: var(--cor-texto-claro);
-            margin-bottom: 15px;
-        }
-
-        #estatuto-container strong {
-            color: var(--cor-secundaria);
+        .back-link:hover {
+            color: #f0c24f;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>ESTATUTO INTERNO DA ATLÉTICA TORMENTA</h1>
+        
+        <h2>PREÂMBULO</h2>
+        <p class="preambulo">Nós, estudantes dos cursos do Centro de Tecnologia e Geociências (CTG), do Departamento de Energia Nuclear (DEN) e do Departamento de Engenharia Química (DEQ) da Universidade Federal de Pernambuco (UFPE), com o propósito de unificar os cursos de engenharia através do esporte, promover a coexistência pacífica e a integração entre as demais atléticas e a comunidade acadêmica, fundamos a ATLÉTICA TORMENTA. Este Estatuto Interno estabelece as diretrizes e normas que regerão suas atividades, garantindo uma gestão transparente, democrática e eficaz.</p>
 
-    <header>
-        <div class="container">
-            <h1>ATLÉTICA TORMENTA</h1>
-            <p>Estatuto Interno</p>
-        </div>
-    </header>
+        <h2>CAPÍTULO I - DA DENOMINAÇÃO, SEDE, FINS E DURAÇÃO</h2>
+        <h3>Art. 1º - Da Denominação e Natureza</h3>
+        <p>A associação passa a denominar-se ATLÉTICA TORMENTA, doravante denominada "Atlética", uma entidade civil sem fins lucrativos, de caráter desportivo, social e cultural.</p>
+        
+        <h3>Art. 2º - Da Sede</h3>
+        <p>A Atlética Tormenta terá sua sede administrativa e local de reuniões nas dependências da Universidade Federal de Pernambuco (UFPE), preferencialmente em espaço cedido ou definido pelas Diretorias dos Centros e Departamentos representados.</p>
+        
+        <h3>Art. 3º - Dos Fins e Objetivos</h3>
+        <p>A Atlética Tormenta tem como finalidade principal:</p>
+        <ol type="I">
+            <li>Promover e incentivar a prática desportiva em suas diversas modalidades entre os estudantes do CTG, DEN e DEQ da UFPE.</li>
+            <li>Integrar os estudantes através de atividades esportivas, sociais e culturais.</li>
+            <li>Representar os cursos e a UFPE em competições esportivas universitárias em níveis municipal, estadual e nacional.</li>
+            <li>Organizar e sediar eventos esportivos, treinos e atividades que fomentem o espírito esportivo e a vida saudável.</li>
+            <li>Buscar a excelência e o desenvolvimento de atletas e equipes.</li>
+            <li>Contribuir para a formação integral dos estudantes, desenvolvendo valores como trabalho em equipe, disciplina, respeito e liderança.</li>
+            <li>Fomentar a união dos cursos representados e a coexistência respeitosa com as demais atléticas de engenharia da UFPE, através de atividades desportivas e sociais.</li>
+        </ol>
+        
+        <h3>Art. 4º - Da Duração</h3>
+        <p>O prazo de duração da Atlética é indeterminado.</p>
 
-    <nav>
-        <div class="container">
-            <a href="index.html">Página Inicial</a>
-        </div>
-    </nav>
+        <h2>CAPÍTULO II - DOS MEMBROS</h2>
+        <h3>Art. 5º - Da Composição do Quadro de Membros</h3>
+        <p>A Atlética Tormenta será composta por:</p>
+        <ol type="I">
+            <li>Membros Fundadores: Os membros que participaram da elaboração e aprovação deste Estatuto.</li>
+            <li>Membros Atletas: Estudantes regularmente matriculados nos cursos do CTG, DEN e DEQ da UFPE que participam ativamente das equipes esportivas da Atlética.</li>
+            <li>Membros Colaboradores: Estudantes regularmente matriculados nos cursos do CTG, DEN e DEQ da UFPE que contribuem voluntariamente nas atividades de organização, gestão e apoio da Atlética.</li>
+            <li>Membros Honorários: Personalidades que tenham prestado relevantes serviços à Atlética ou ao esporte universitário, convidados e aprovados pela Diretoria Executiva.</li>
+        </ol>
 
-    <section id="estatuto">
-        <div id="estatuto-container">
-            <h2>Estatuto Interno da Atlética Tormenta</h2>
+        <h3>Art. 6º - Dos Direitos dos Membros</h3>
+        <p>São direitos de todos os membros, de acordo com sua categoria:</p>
+        <ol type="I">
+            <li>Participar das atividades esportivas e sociais promovidas pela Atlética.</li>
+            <li>Votar e ser votado, respeitadas as condições de elegibilidade para cargos da Diretoria Executiva.</li>
+            <li>Propor ideias, sugestões e projetos para a Atlética.</li>
+            <li>Ter acesso às informações sobre as atividades e a gestão financeira da Atlética.</li>
+            <li>Usufruir dos benefícios e convênios firmados pela Atlética.</li>
+            <li>Votar e ser votado nas Assembleias Gerais, sendo este direito concedido aos Membros Fundadores e Membros Colaboradores em pleno gozo de seus direitos estatutários, além dos Presidentes das Atléticas Fundadoras com voto permanente. Os membros Atletas e Honorários não possuem direito a voto, salvo deliberação específica da Diretoria Executiva em casos excepcionais.</li>
+        </ol>
 
-            <h3>PREÂMBULO</h3>
-            <p>Nós, representantes das Atléticas Soberana, Thenebrosa, Reativa, Zangada, Invocados e Radioativa, oriundas do Centro de Tecnologia e Geociências (CTG), Departamento de Energia Nuclear (DEN) e do Departamento de Engenharia Química (DEQ) da Universidade Federal de Pernambuco (UFPE), com o propósito de unir forças, promover o esporte universitário, integrar a comunidade acadêmica e representar com excelência nossos cursos e a instituição, fundamos a ATLÉTICA TORMENTA. Este Estatuto Interno estabelece as diretrizes e normas que regerão suas atividades, garantindo uma gestão transparente, democrática e eficaz.</p>
+        <h3>Art. 7º - Dos Deveres dos Membros</h3>
+        <p>São deveres de todos os membros:</p>
+        <ol type="I">
+            <li>Cumprir e fazer cumprir o presente Estatuto, o Regimento Interno e as deliberações da Diretoria Executiva.</li>
+            <li>Zelar pelo bom nome e patrimônio da Atlética.</li>
+            <li>Contribuir financeiramente com as taxas ou mensalidades estabelecidas, quando aplicável.</li>
+            <li>Respeitar os demais membros, atletas, adversários e árbitros.</li>
+            <li>Manter conduta ética e desportiva em todas as atividades.</li>
+        </ol>
 
-            <h3>CAPÍTULO I - DA DENOMINAÇÃO, SEDE, FINS E DURAÇÃO</h3>
-            <p><strong>Art. 1º - Da Denominação e Natureza</strong></p>
-            <p>A associação passa a denominar-se ATLÉTICA TORMENTA, doravante denominada "Atlética", uma entidade civil sem fins lucrativos, de caráter desportivo, social e cultural.</p>
-            
-            <p><strong>Art. 2º - Da Sede</strong></p>
-            <p>A Atlética Tormenta terá sua sede administrativa e local de reuniões nas dependências da Universidade Federal de Pernambuco (UFPE), preferencialmente em espaço cedido ou definido pelas Diretorias dos Centros e Departamentos representados.</p>
-            
-            <p><strong>Art. 3º - Dos Fins e Objetivos</strong></p>
-            <p>A Atlética Tormenta tem como finalidade principal:</p>
-            <ol>
-                <li>Promover e incentivar a prática desportiva em suas diversas modalidades entre os estudantes do CTG, DEN e DEQ da UFPE.</li>
-                <li>Integrar os estudantes através de atividades esportivas, sociais e culturais.</li>
-                <li>Representar os cursos e a UFPE em competições esportivas universitárias em níveis municipal, estadual e nacional.</li>
-                <li>Organizar e sediar eventos esportivos, treinos e atividades que fomentem o espírito esportivo e a vida saudável.</li>
-                <li>Buscar a excelência e o desenvolvimento de atletas e equipes.</li>
-                <li>Contribuir para a formação integral dos estudantes, desenvolvendo valores como trabalho em equipe, disciplina, respeito e liderança.</li>
-                <li>Fomentar a união e a cooperação entre as atléticas de origem, mantendo suas identidades, mas operando sob uma gestão unificada em prol dos objetivos comuns da Atlética Tormenta.</li>
+        <h3>Art. 8º - Da Admissão e Desligamento de Membros</h3>
+        <ol type="I">
+            <li>A admissão de novos membros ocorrerá mediante inscrição e aprovação da Diretoria Executiva, conforme critérios estabelecidos em Regimento Interno.</li>
+            <li>O desligamento de membros poderá ocorrer por:</li>
+            <ol type="a">
+                <li>Pedido voluntário.</li>
+                <li>Descumprimento grave e reiterado deste Estatuto ou do Regimento Interno.</li>
+                <li>Conduta antidesportiva ou que prejudique a imagem da Atlética.</li>
+                <li>Conclusão ou trancamento de matrícula na UFPE (para membros atletas e colaboradores, salvo exceções definidas pela Diretoria Executiva).</li>
             </ol>
-            
-            <p><strong>Art. 4º - Da Duração</strong></p>
-            <p>O prazo de duração da Atlética é indeterminado.</p>
+            <li>A Diretoria Executiva deverá comunicar ao membro a decisão de desligamento, garantindo-lhe o direito de defesa prévia.</li>
+        </ol>
 
-            <h3>CAPÍTULO II - DOS MEMBROS</h3>
-            <p><strong>Art. 5º - Da Composição do Quadro de Membros</strong></p>
-            <p>A Atlética Tormenta será composta por:</p>
-            <ol>
-                <li>Membros Fundadores: Os membros das diretorias das Atléticas Soberana, Thenebrosa, Reativa, Zangada, Invocados e Radioativa que participaram da elaboração e aprovação deste Estatuto.</li>
-                <li>Membros Atletas: Estudantes regularmente matriculados nos cursos do CTG, DEN e DEQ da UFPE que participam ativamente das equipes esportivas da Atlética.</li>
-                <li>Membros Colaboradores: Estudantes regularmente matriculados nos cursos do CTG, DEN e DEQ da UFPE que contribuem voluntariamente nas atividades de organização, gestão e apoio da Atlética.</li>
-                <li>Membros Honorários: Personalidades que tenham prestado relevantes serviços à Atlética ou ao esporte universitário, convidados e aprovados pela Diretoria Executiva.</li>
+        <h2>CAPÍTULO III - DA ESTRUTURA ORGANIZACIONAL</h2>
+        <h3>Art. 9º - Da Estrutura</h3>
+        <p>A estrutura organizacional da Atlética Tormenta será composta por:</p>
+        <ol type="I">
+            <li>Assembleia Geral;</li>
+            <li>Diretoria Executiva;</li>
+            <li>Conselho Fiscal.</li>
+            <li>Coordenadorias de Modalidade.</li>
+        </ol>
+        
+        <h3>Art. 10º - Da Assembleia Geral</h3>
+        <ol type="I">
+            <li>A Assembleia Geral é o órgão soberano da Atlética, composta por todos os membros com direito a voto.</li>
+            <li>Suas atribuições incluem:</li>
+            <ol type="a">
+                <li>Eleger e destituir os membros da Diretoria Executiva e do Conselho Fiscal.</li>
+                <li>Aprovar as contas e o relatório de atividades da Diretoria Executiva.</li>
+                <li>Alterar o presente Estatuto.</li>
+                <li>Deliberar sobre a dissolução da Atlética.</li>
+                <li>Apreciar recursos contra decisões da Diretoria Executiva.</li>
+                <li>Definir as diretrizes gerais da Atlética.</li>
+                <li>Apresentação de Plano de Ação Semestral.</li>
             </ol>
-            
-            <p><strong>Art. 6º - Dos Direitos dos Membros</strong></p>
-            <p>São direitos de todos os membros, de acordo com sua categoria:</p>
-            <ol>
-                <li>Participar das atividades esportivas e sociais promovidas pela Atlética.</li>
-                <li>Votar e ser votado, respeitadas as condições de elegibilidade para cargos da Diretoria Executiva.</li>
-                <li>Propor ideias, sugestões e projetos para a Atlética.</li>
-                <li>Ter acesso às informações sobre as atividades e a gestão financeira da Atlética.</li>
-                <li>Usufruir dos benefícios e convênios firmados pela Atlética.</li>
-                <li>Votar e ser votado nas Assembleias Gerais, sendo este direito concedido aos Membros Fundadores e Membros Colaboradores em pleno gozo de seus direitos estatutários, além dos Presidentes das Atléticas Fundadoras com voto permanente. Os membros Atletas e Honorários não possuem direito a voto, salvo deliberação específica da Diretoria Executiva em casos excepcionais.</li>
-            </ol>
-            
-            <p><strong>Art. 7º - Dos Deveres dos Membros</strong></p>
-            <p>São deveres de todos os membros:</p>
-            <ol>
-                <li>Cumprir e fazer cumprir o presente Estatuto, o Regimento Interno e as deliberações da Diretoria Executiva.</li>
-                <li>Zelar pelo bom nome e patrimônio da Atlética.</li>
-                <li>Contribuir financeiramente com as taxas ou mensalidades estabelecidas, quando aplicável.</li>
-                <li>Respeitar os demais membros, atletas, adversários e árbitros.</li>
-                <li>Manter conduta ética e desportiva em todas as atividades.</li>
-            </ol>
-            
-            <p><strong>Art. 8º - Da Admissão e Desligamento de Membros</strong></p>
-            <ol>
-                <li>A admissão de novos membros ocorrerá mediante inscrição e aprovação da Diretoria Executiva, conforme critérios estabelecidos em Regimento Interno.</li>
-                <li>O desligamento de membros poderá ocorrer por:
-                    <ol type="a">
-                        <li>Pedido voluntário.</li>
-                        <li>Descumprimento grave e reiterado deste Estatuto ou do Regimento Interno.</li>
-                        <li>Conduta antidesportiva ou que prejudique a imagem da Atlética.</li>
-                        <li>Conclusão ou trancamento de matrícula na UFPE (para membros atletas e colaboradores, salvo exceções definidas pela Diretoria Executiva).</li>
-                    </ol>
-                </li>
-                <li>A Diretoria Executiva deverá comunicar ao membro a decisão de desligamento, garantindo-lhe o direito de defesa prévia.</li>
-            </ol>
+            <li>As Assembleias Gerais serão convocadas pela Diretoria Executiva ou por 1/5 (um quinto) dos membros com direito a voto, com antecedência mínima de 7 (sete) dias úteis.</li>
+            <li>As deliberações da Assembleia Geral serão tomadas por maioria simples dos votos dos presentes, salvo nos casos de alteração estatutária e dissolução da Atlética, que exigirão quórum qualificado de 2/3 (dois terços) dos votos dos presentes.</li>
+            <li>O quórum para instalação da Assembleia Geral em primeira convocação será de metade mais um dos membros com direito a voto. Em segunda convocação, 30 minutos após a primeira, a Assembleia Geral instalar-se-á com qualquer número de membros presentes.</li>
+            <li>Todo início de semestre, o Presidente e o Vice-Presidente têm a obrigatoriedade de realizar uma Assembleia Geral sobre o item 'g' (Plano de Ação Semestral) dentro de um prazo de 30 dias a partir do início do semestre letivo.</li>
+        </ol>
 
-            <h3>CAPÍTULO III - DA ESTRUTURA ORGANIZACIONAL</h3>
-            <p><strong>Art. 9º - Da Estrutura</strong></p>
-            <p>A estrutura organizacional da Atlética Tormenta será composta por:</p>
-            <ol>
-                <li>Assembleia Geral;</li>
-                <li>Diretoria Executiva;</li>
-                <li>Conselho Fiscal.</li>
-                <li>Coordenadorias de Modalidade.</li>
+        <h3>Art. 11º - Da Diretoria Executiva</h3>
+        <ol type="I">
+            <li>A Diretoria Executiva é o órgão de gestão da Atlética, responsável pela execução das deliberações da Assembleia Geral e pela administração das atividades.</li>
+            <li>A Diretoria Executiva será composta pelos seguintes cargos, com uma pessoa por cargo, exceto para o cargo de Diretor de Marketing, que poderá ter até 3 (três) membros:</li>
+            <ol type="a">
+                <li>**Presidente:** Representar a Atlética judicial e extrajudicialmente, convocar e presidir as reuniões da Diretoria Executiva, coordenar as atividades gerais.</li>
+                <li>**Vice-Presidente:** Substituir o Presidente em suas ausências e impedimentos, auxiliar nas atividades da Presidência e coordenar projetos específicos.</li>
+                <li>**Diretor de Eventos:** Planejar, organizar e coordenar festas, confraternizações e eventos recreativos de caráter festivo promovidos pela Atlética.</li>
+                <li>**Diretor Sociocultural:** Organizar eventos de integração, atividades culturais e ações que promovam o convívio entre os membros da Atlética.</li>
+                <li>**Diretor de Esportes:** Compete organizar a estrutura esportiva, o que inclui, mas não se limita à qualificação do ambiente de treino, à realização de campeonatos e torneios e à escolha dos treinadores para as modalidades. Ademais, o Diretor de Esportes detém a responsabilidade de supervisionar a Coordenadoria de Modalidade e de indicar seus membros.</li>
+                <li>**Diretor de Marketing:** Responsável por gerenciar a imagem e a comunicação da Atlética, atuando nas redes sociais, na promoção de eventos e na relação com o público e parceiros. É o principal responsável pela prospecção e formalização de patrocínios. Além disso, indica e coordena os Diretores Auxiliares de Marketing.</li>
             </ol>
-            
-            <p><strong>Art. 10º - Da Assembleia Geral</strong></p>
-            <ol>
-                <li>A Assembleia Geral é o órgão soberano da Atlética, composta por todos os membros com direito a voto, incluindo os Presidentes das Atléticas Fundadoras (Soberana, Thenebrosa, Reativa, Zangada, Invocados e Radioativa), que terão voto permanente.</li>
-                <li>Suas atribuições incluem:
-                    <ol type="a">
-                        <li>Eleger e destituir os membros da Diretoria Executiva e do Conselho Fiscal.</li>
-                        <li>Aprovar as contas e o relatório de atividades da Diretoria Executiva.</li>
-                        <li>Alterar o presente Estatuto.</li>
-                        <li>Deliberar sobre a dissolução da Atlética.</li>
-                        <li>Apreciar recursos contra decisões da Diretoria Executiva.</li>
-                        <li>Definir as diretrizes gerais da Atlética.</li>
-                        <li>Apresentação de Plano de Ação Semestral.</li>
-                    </ol>
-                </li>
-                <li>As Assembleias Gerais serão convocadas pela Diretoria Executiva ou por 1/5 (um quinto) dos membros com direito a voto, com antecedência mínima de 7 (sete) dias úteis.</li>
-                <li>As deliberações da Assembleia Geral serão tomadas por maioria simples dos votos dos presentes, salvo nos casos de alteração estatutária e dissolução da Atlética, que exigirão quórum qualificado de 2/3 (dois terços) dos votos dos presentes.</li>
-                <li>O quórum para instalação da Assembleia Geral em primeira convocação será de metade mais um dos membros com direito a voto. Em segunda convocação, 30 minutos após a primeira, a Assembleia Geral instalar-se-á com qualquer número de membros presentes.</li>
-                <li>Todo início de semestre, o Presidente e o Vice-Presidente têm a obrigatoriedade de realizar uma Assembleia Geral sobre o item 'g' (Plano de Ação Semestral) dentro de um prazo de 30 dias a partir do início do semestre letivo.</li>
+            <li>A Diretoria Executiva poderá criar outras diretorias ou coordenadorias, conforme necessidade, mediante aprovação em reunião.</li>
+            <li>Os membros da Diretoria Executiva serão eleitos para um mandato de 1 (um) ano, permitida uma reeleição consecutiva.</li>
+            <li>As decisões da Diretoria Executiva serão tomadas por maioria simples de seus membros.</li>
+            <li>As atribuições e os direitos dos Diretores Auxiliares de Marketing serão os mesmos dos do Diretor de Marketing, limitando-se apenas às funções que são subordinadas diretamente ao Diretor de Marketing.</li>
+            <li>Da Vacância de Cargos na Diretoria Executiva</li>
+            <ol type="a">
+                <li>Em caso de vacância de qualquer cargo na Diretoria Executiva, exceto o de Presidente, a substituição será feita por nomeação do Presidente, com aprovação da maioria simples dos demais membros da Diretoria, para cumprir o restante do mandato.</li>
+                <li>Se o cargo vago for o de Presidente, o Vice-Presidente assumirá a Presidência de forma automática e imediata, e o cargo de Vice-Presidente será preenchido conforme o procedimento descrito na alínea "a".</li>
+                <li>O membro nomeado para preencher a vacância servirá apenas pelo tempo remanescente do mandato, e este período contará como parte do seu limite de reeleição.</li>
             </ol>
-            
-            <p><strong>Art. 11º - Da Diretoria Executiva</strong></p>
-            <ol>
-                <li>A Diretoria Executiva é o órgão de gestão da Atlética, responsável pela execução das deliberações da Assembleia Geral e pela administração das atividades.</li>
-                <li>A Diretoria Executiva será composta pelos seguintes cargos, com uma pessoa por cargo, exceto para o cargo de Diretor de Marketing, que poderá ter até 3 (três) membros:
-                    <ol type="a">
-                        <li>Presidente: Representar a Atlética judicial e extrajudicialmente, convocar e presidir as reuniões da Diretoria Executiva, coordenar as atividades gerais.</li>
-                        <li>Vice-Presidente: Substituir o Presidente em suas ausências e impedimentos, auxiliar nas atividades da Presidência e coordenar projetos específicos.</li>
-                        <li>Diretor de Eventos: Planejar, organizar e coordenar festas, confraternizações e eventos recreativos de caráter festivo promovidos pela Atlética.</li>
-                        <li>Diretor Sociocultural: Organizar eventos de integração, atividades culturais e ações que promovam o convívio entre os membros da Atlética.</li>
-                        <li>Diretor de Esportes: Compete organizar a estrutura esportiva, o que inclui, mas não se limita à qualificação do ambiente de treino, à realização de campeonatos e torneios e à escolha dos treinadores para as modalidades. Ademais, o Diretor de Esportes detém a responsabilidade de supervisionar a Coordenadoria de Modalidade e de indicar seus membros.</li>
-                        <li>Diretor de Marketing: Responsável por gerenciar a imagem e a comunicação da Atlética, atuando nas redes sociais, na promoção de eventos e na relação com o público e parceiros. É o principal responsável pela prospecção e formalização de patrocínios. Além disso, indica e coordena os Diretores Auxiliares de Marketing.</li>
-                    </ol>
-                </li>
-                <li>A Diretoria Executiva poderá criar outras diretorias ou coordenadorias, conforme necessidade, mediante aprovação em reunião.</li>
-                <li>Os membros da Diretoria Executiva serão eleitos para um mandato de 1 (um) ano, permitida uma reeleição consecutiva.</li>
-                <li>As decisões da Diretoria Executiva serão tomadas por maioria simples de seus membros.</li>
-                <li>As atribuições e os direitos dos Diretores Auxiliares de Marketing serão os mesmos dos do Diretor de Marketing, limitando-se apenas às funções que são subordinadas diretamente ao Diretor de Marketing.</li>
-                <li>Da Vacância de Cargos na Diretoria Executiva
-                    <ol type="a">
-                        <li>Em caso de vacância de qualquer cargo na Diretoria Executiva, exceto o de Presidente, a substituição será feita por nomeação do Presidente, com aprovação da maioria simples dos demais membros da Diretoria, para cumprir o restante do mandato.</li>
-                        <li>Se o cargo vago for o de Presidente, o Vice-Presidente assumirá a Presidência de forma automática e imediata, e o cargo de Vice-Presidente será preenchido conforme o procedimento descrito na alínea "a".</li>
-                        <li>O membro nomeado para preencher a vacância servirá apenas pelo tempo remanescente do mandato, e este período contará como parte do seu limite de reeleição.</li>
-                    </ol>
-                </li>
-            </ol>
-            
-            <p><strong>Art. 12º - Do Conselho Fiscal</strong></p>
-            <ol>
-                <li>O Conselho Fiscal é o órgão responsável pela fiscalização financeira e patrimonial da Atlética.</li>
-                <li>Será composto por 3 (três) membros titulares e 3 (três) membros suplentes, eleitos pela Assembleia Geral, com mandato de 1 (um) ano, permitida uma reeleição consecutiva.</li>
-                <li>Suas atribuições incluem:
-                    <ol type="a">
-                        <li>Examinar os livros, documentos e balancetes da Atlética.</li>
-                        <li>Emitir parecer sobre as contas e relatórios financeiros da Diretoria Executiva.</li>
-                        <li>Apresentar relatórios à Assembleia Geral.</li>
-                    </ol>
-                </li>
-                <li>As reuniões do Conselho Fiscal serão realizadas trimestralmente ou sempre que necessário, mediante convocação de seu Presidente ou da Diretoria Executiva.</li>
-            </ol>
+        </ol>
 
-            <p><strong>Art. 13º - Das Coordenadorias de Modalidade</strong></p>
-            <ol>
-                <li>As Coordenadorias de Modalidade são cargos de gestão específicos para cada modalidade esportiva, reportando-se diretamente ao Diretor de Esportes.</li>
-                <li>Os Coordenadores de Modalidade serão indicados pelo Diretor de Esportes e aprovados pela Diretoria Executiva.</li>
-                <li>Suas atribuições incluem:
-                    <ol type="a">
-                        <li>Supervisionar os treinos.</li>
-                        <li>Gerir os atletas e o material esportivo da modalidade.</li>
-                        <li>Representar a Atlética nas reuniões e eventos relacionados à sua modalidade.</li>
-                        <li>Submeter propostas de orçamento e planos de ação ao Diretor de Esportes.</li>
-                    </ol>
-                </li>
+        <h3>Art. 12º - Do Conselho Fiscal</h3>
+        <ol type="I">
+            <li>O Conselho Fiscal é o órgão responsável pela fiscalização financeira e patrimonial da Atlética.</li>
+            <li>Será composto por 3 (três) membros titulares e 3 (três) membros suplentes, eleitos pela Assembleia Geral, com mandato de 1 (um) ano, permitida uma reeleição consecutiva.</li>
+            <li>Suas atribuições incluem:</li>
+            <ol type="a">
+                <li>Examinar os livros, documentos e balancetes da Atlética.</li>
+                <li>Emitir parecer sobre as contas e relatórios financeiros da Diretoria Executiva.</li>
+                <li>Apresentar relatórios à Assembleia Geral.</li>
             </ol>
+            <li>As reuniões do Conselho Fiscal serão realizadas trimestralmente ou sempre que necessário, mediante convocação de seu Presidente ou da Diretoria Executiva.</li>
+        </ol>
 
-            <p><strong>Art. 14º - Do Processo Eleitoral</strong></p>
-            <ol>
-                <li>A eleição para os cargos da Diretoria Executiva e do Conselho Fiscal ocorrerá anualmente, no último trimestre do ano letivo, em data a ser definida pela Diretoria Executiva em exercício.</li>
-                <li>A Diretoria Executiva em exercício será responsável por convocar a Assembleia Geral Eleitoral com antecedência mínima de 15 (quinze) dias úteis, por meio de comunicado oficial que detalhe a data, local e horário do pleito, bem como as regras de inscrição de chapas.</li>
-                <li>Os candidatos deverão compor uma chapa completa, contendo os nomes e cargos para a Diretoria Executiva (Presidente, Vice-Presidente, Diretor de Eventos, Diretor Sociocultural, Diretor de Esportes e Diretor de Marketing) e para o Conselho Fiscal (3 membros titulares e 3 suplentes).</li>
-                <li>A inscrição das chapas deverá ser realizada junto à Diretoria Executiva em exercício, em um prazo de até 7 (sete) dias úteis antes da data da eleição.</li>
-                <li>O voto será secreto e os votos serão apurados na própria Assembleia Geral, na presença dos representantes de cada chapa inscrita.</li>
-                <li>Será considerada eleita a chapa que obtiver a maioria simples dos votos válidos. Em caso de empate entre as chapas mais votadas, será realizado um segundo turno em até 5 (cinco) dias úteis. No segundo turno, será eleita a chapa que obtiver a maioria simples dos votos, sem a possibilidade de novo empate.</li>
+        <h3>Art. 13º - Das Coordenadorias de Modalidade</h3>
+        <ol type="I">
+            <li>As Coordenadorias de Modalidade são cargos de gestão específicos para cada modalidade esportiva, reportando-se diretamente ao Diretor de Esportes.</li>
+            <li>Os Coordenadores de Modalidade serão indicados pelo Diretor de Esportes e aprovados pela Diretoria Executiva.</li>
+            <li>Suas atribuições incluem:</li>
+            <ol type="a">
+                <li>Supervisionar os treinos.</li>
+                <li>Gerir os atletas e o material esportivo da modalidade.</li>
+                <li>Representar a Atlética nas reuniões e eventos relacionados à sua modalidade.</li>
+                <li>Submeter propostas de orçamento e planos de ação ao Diretor de Esportes.</li>
             </ol>
+        </ol>
 
-            <h3>CAPÍTULO IV - DO PATRIMÔNIO E DAS FINANÇAS</h3>
-            <p><strong>Art. 15º - Do Patrimônio</strong></p>
-            <p>O patrimônio da Atlética será constituído por:</p>
-            <ol>
-                <li>Contribuições, doações, legados e auxílios de pessoas físicas ou jurídicas, públicas ou privadas.</li>
-                <li>Receitas provenientes de eventos, festas, vendas de produtos e patrocínios.</li>
-                <li>Bens móveis e imóveis adquiridos.</li>
-                <li>Rendimentos de aplicações financeiras.</li>
-            </ol>
-            
-            <p><strong>Art. 16º - Da Gestão Financeira</strong></p>
-            <ol>
-                <li>As finanças da Atlética serão administradas pelo Vice-Presidente, sob a supervisão do Conselho Fiscal.</li>
-                <li>Todas as despesas deverão ser aprovadas pelo Vice-Presidente, ressalvadas as de valor superior a 30% do caixa atual, que deverão ser aprovadas pela Diretoria Executiva, com a devida comprovação de todas as despesas.</li>
-                <li>A prestação de contas será apresentada trimestralmente à Diretoria Executiva e anualmente à Assembleia Geral.</li>
-                <li>Antes de ser submetida à Assembleia Geral, a prestação de contas anual da Diretoria Executiva deverá ser examinada pelo Conselho Fiscal, que emitirá um parecer sobre sua exatidão e regularidade. O parecer será apresentado à Assembleia Geral junto com o relatório financeiro.</li>
-            </ol>
+        <h3>Art. 14º - Do Processo Eleitoral</h3>
+        <ol type="I">
+            <li>A eleição para os cargos da Diretoria Executiva e do Conselho Fiscal ocorrerá anualmente, no último trimestre do ano letivo, em data a ser definida pela Diretoria Executiva em exercício.</li>
+            <li>A Diretoria Executiva em exercício será responsável por convocar a Assembleia Geral Eleitoral com antecedência mínima de 15 (quinze) dias úteis, por meio de comunicado oficial que detalhe a data, local e horário do pleito, bem como as regras de inscrição de chapas.</li>
+            <li>Os candidatos deverão compor uma chapa completa, contendo os nomes e cargos para a Diretoria Executiva (Presidente, Vice-Presidente, Diretor de Eventos, Diretor Sociocultural, Diretor de Esportes e Diretor de Marketing) e para o Conselho Fiscal (3 membros titulares e 3 suplentes).</li>
+            <li>A inscrição das chapas deverá ser realizada junto à Diretoria Executiva em exercício, em um prazo de até 7 (sete) dias úteis antes da data da eleição.</li>
+            <li>O voto será secreto e os votos serão apurados na própria Assembleia Geral, na presença dos representantes de cada chapa inscrita.</li>
+            <li>Será considerada eleita a chapa que obtiver a maioria simples dos votos válidos. Em caso de empate entre as chapas mais votadas, será realizado um segundo turno em até 5 (cinco) dias úteis. No segundo turno, será eleita a chapa que obtiver a maioria simples dos votos, sem a possibilidade de novo empate.</li>
+        </ol>
 
-            <h3>CAPÍTULO V - DAS REUNIÕES</h3>
-            <p><strong>Art. 17º - Das Reuniões da Diretoria Executiva</strong></p>
-            <ol>
-                <li>As reuniões da Diretoria Executiva serão realizadas, no mínimo, mensalmente, ou sempre que necessário, mediante convocação do Presidente ou de 2/3 (dois terços) de seus membros.</li>
-                <li>As pautas das reuniões deverão ser divulgadas com antecedência mínima de 48 (quarenta e oito) horas.</li>
-                <li>As deliberações serão registradas em ata.</li>
-            </ol>
+        <h2>CAPÍTULO IV - DO PATRIMÔNIO E DAS FINANÇAS</h2>
+        <h3>Art. 15º - Do Patrimônio</h3>
+        <p>O patrimônio da Atlética será constituído por:</p>
+        <ol type="I">
+            <li>Contribuições, doações, legados e auxílios de pessoas físicas ou jurídicas, públicas ou privadas.</li>
+            <li>Receitas provenientes de eventos, festas, vendas de produtos e patrocínios.</li>
+            <li>Bens móveis e imóveis adquiridos.</li>
+            <li>Rendimentos de aplicações financeiras.</li>
+        </ol>
 
-            <h3>CAPÍTULO VI - DOS DIREITOS E DEVERES ESPECÍFICOS DAS ATLÉTICAS DE ORIGEM</h3>
-            <p><strong>Art. 18º - Da Manutenção das Identidades</strong></p>
-            <p>As Atléticas Soberana, Thenebrosa, Reativa, Zangada, Invocados e Radioativa, embora unidas sob a Atlética Tormenta, manterão suas identidades e histórico, podendo realizar atividades específicas de seus cursos, desde que não conflitem com os objetivos e as deliberações da Atlética Tormenta.</p>
-            
-            <p><strong>Art. 19º - Da Representatividade na Diretoria</strong></p>
-            <p>Buscar-se-á, sempre que possível, que a composição da Diretoria Executiva da Atlética Tormenta seja representativa dos diversos cursos e das atléticas de origem, a fim de garantir a integração e a diversidade de perspectivas.</p>
+        <h3>Art. 16º - Da Gestão Financeira</h3>
+        <ol type="I">
+            <li>As finanças da Atlética serão administradas pelo Vice-Presidente, sob a supervisão do Conselho Fiscal.</li>
+            <li>Todas as despesas deverão ser aprovadas pelo Vice-Presidente, ressalvadas as de valor superior a 30% do caixa atual, que deverão ser aprovadas pela Diretoria Executiva, com a devida comprovação de todas as despesas.</li>
+            <li>A prestação de contas será apresentada trimestralmente à Diretoria Executiva e anualmente à Assembleia Geral.</li>
+            <li>Antes de ser submetida à Assembleia Geral, a prestação de contas anual da Diretoria Executiva deverá ser examinada pelo Conselho Fiscal, que emitirá um parecer sobre sua exatidão e regularidade. O parecer será apresentado à Assembleia Geral junto com o relatório financeiro.</li>
+        </ol>
 
-            <h3>CAPÍTULO VII - DAS DISPOSIÇÕES DISCIPLINARES</h3>
-            <p><strong>Art. 20º - Das Penalidades</strong></p>
-            <p>O descumprimento das normas deste Estatuto, do Regimento Interno ou a prática de atos que prejudiquem a Atlética poderá acarretar as seguintes penalidades, aplicadas pela Diretoria Executiva, garantindo o direito ao contraditório e à ampla defesa:</p>
-            <ol>
-                <li>Advertência verbal;</li>
-                <li>Advertência escrita;</li>
-                <li>Suspensão de atividades por tempo determinado;</li>
-                <li>Desligamento do quadro de membros.</li>
-            </ol>
+        <h2>CAPÍTULO V - DAS REUNIÕES</h2>
+        <h3>Art. 17º - Das Reuniões da Diretoria Executiva</h3>
+        <ol type="I">
+            <li>As reuniões da Diretoria Executiva serão realizadas, no mínimo, mensalmente, ou sempre que necessário, mediante convocação do Presidente ou de 2/3 (dois terços) de seus membros.</li>
+            <li>As pautas das reuniões deverão ser divulgadas com antecedência mínima de 48 (quarenta e oito) horas.</li>
+            <li>As deliberações serão registradas em ata.</li>
+        </ol>
 
-            <h3>CAPÍTULO VIII - DAS DISPOSIÇÕES GERAIS E FINAIS</h3>
-            <p><strong>Art. 21º - Das Alterações Estatutárias</strong></p>
-            <p>O presente Estatuto poderá ser alterado por deliberação da Assembleia Geral, convocada especificamente para este fim, com quórum qualificado de 2/3 (dois terços) dos votos dos presentes.</p>
-            
-            <p><strong>Art. 22º - Do Regimento Interno</strong></p>
-            <p>A Diretoria Executiva deverá elaborar um Regimento Interno, que detalhará as normas operacionais e administrativas da Atlética, complementando este Estatuto. O Regimento Interno deverá ser aprovado em Assembleia Geral.</p>
-            
-            <p><strong>Art. 23º - Da Dissolução</strong></p>
-            <p>A Atlética poderá ser dissolvida por deliberação da Assembleia Geral, convocada especificamente para este fim, com quórum qualificado de 2/3 (dois terços) dos votos dos presentes. Em caso de dissolução, o patrimônio remanescente será destinado a outra entidade congênere ou a uma instituição de caridade, conforme deliberação da Assembleia Geral.</p>
-            
-            <p><strong>Art. 24º - Dos Casos Omissos</strong></p>
-            <p>Os casos omissos neste Estatuto serão resolvidos pela Diretoria Executiva, com posterior referendo da Assembleia Geral, se necessário.</p>
-            
-            <p><strong>Art. 25º - Da Entrada em Vigor</strong></p>
-            <p>Este Estatuto entra em vigor na data de sua aprovação na Assembleia Geral dos representantes das Atléticas Fundadoras.</p>
-            
-            <p><strong>Recife, [Dia] de [Mês] de 2025.</strong></p>
-            
-        </div>
-    </section>
+        <h2>CAPÍTULO VI - DAS DISPOSIÇÕES DISCIPLINARES</h2>
+        <h3>Art. 20º - Das Penalidades</h3>
+        <p>O descumprimento das normas deste Estatuto, do Regimento Interno ou a prática de atos que prejudiquem a Atlética poderá acarretar as seguintes penalidades, aplicadas pela Diretoria Executiva, garantindo o direito ao contraditório e à ampla defesa:</p>
+        <ol type="I">
+            <li>Advertência verbal;</li>
+            <li>Advertência escrita;</li>
+            <li>Suspensão de atividades por tempo determinado;</li>
+            <li>Desligamento do quadro de membros.</li>
+        </ol>
 
-    <footer>
-        <div class="container">
-            <h3>Voltar para a Página Inicial</h3>
-            <a href="index.html">Página Inicial</a>
-            <p>&copy; 2025 Atlética Tormenta. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+        <h2>CAPÍTULO VII - DAS DISPOSIÇÕES GERAIS E FINAIS</h2>
+        <h3>Art. 21º - Das Alterações Estatutárias</h3>
+        <p>O presente Estatuto poderá ser alterado por deliberação da Assembleia Geral, convocada especificamente para este fim, com quórum qualificado de 2/3 (dois terços) dos votos dos presentes.</p>
 
+        <h3>Art. 22º - Do Regimento Interno</h3>
+        <p>A Diretoria Executiva deverá elaborar um Regimento Interno, que detalhará as normas operacionais e administrativas da Atlética, complementando este Estatuto. O Regimento Interno deverá ser aprovado em Assembleia Geral.</p>
+
+        <h3>Art. 23º - Da Dissolução</h3>
+        <p>A Atlética poderá ser dissolvida por deliberação da Assembleia Geral, convocada especificamente para este fim, com quórum qualificado de 2/3 (dois terços) dos votos dos presentes. Em caso de dissolução, o patrimônio remanescente será destinado a outra entidade congênere ou a uma instituição de caridade, conforme deliberação da Assembleia Geral.</p>
+
+        <h3>Art. 24º - Dos Casos Omissos</h3>
+        <p>Os casos omissos neste Estatuto serão resolvidos pela Diretoria Executiva, com posterior referendo da Assembleia Geral, se necessário.</p>
+
+        <h3>Art. 25º - Da Entrada em Vigor</h3>
+        <p>Este Estatuto entra em vigor na data de sua aprovação na Assembleia Geral dos representantes das Atléticas Fundadoras.</p>
+        
+        <p style="text-align: right;">Recife, 17 de Setembro de 2025.</p>
+
+        <a href="index.html" class="back-link">Voltar para a Página Inicial</a>
+    </div>
 </body>
-
 </html>
