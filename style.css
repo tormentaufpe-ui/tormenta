@@ -5,6 +5,7 @@
     --cor-texto-escuro: #1a1a1a;
 }
 
+/* Adicionando rolagem suave */
 html {
     scroll-behavior: smooth;
 }
@@ -18,6 +19,16 @@ body {
     color: var(--cor-texto-claro);
     line-height: 1.6;
 }
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--cor-principal);
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+    padding-top: 80px; /* Adicione esta linha para criar espaço para a barra de navegação */
+}
 
 .container {
     width: 90%;
@@ -26,6 +37,7 @@ body {
     padding: 20px 0;
 }
 
+/* Animação de entrada */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -35,25 +47,32 @@ nav, header, section, footer {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Nav - Navegação (novo estilo) */
+/* Nav - Navegação (estilo para sumir e reaparecer) */
 nav {
     text-align: center;
     padding: 15px 0;
-    background-color: transparent; /* Fundo transparente */
-    border-bottom: 2px solid var(--cor-secundaria); /* Adiciona uma linha dourada sutil */
-    position: sticky;
+    background-color: var(--cor-principal);
+    border-bottom: 2px solid var(--cor-secundaria);
+    position: fixed; /* Mude de 'sticky' para 'fixed' */
     top: 0;
+    width: 100%;
     z-index: 1000;
+    transition: top 0.3s ease-in-out; /* Transição para o efeito de deslizar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-hidden {
+    top: -80px; /* Esconde a navegação acima da tela */
 }
 
 .botao-link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--cor-principal); /* Fundo na cor principal */
-    color: var(--cor-secundaria); /* Texto na cor dourada */
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
     text-decoration: none;
     font-weight: bold;
-    border: 2px solid var(--cor-secundaria); /* Borda na cor dourada */
+    border: 2px solid var(--cor-secundaria);
     border-radius: 5px;
     text-align: center;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -61,7 +80,7 @@ nav {
 }
 
 .botao-link:hover {
-    background-color: var(--cor-secundaria); /* Inverte as cores ao passar o mouse */
+    background-color: var(--cor-secundaria);
     color: var(--cor-principal);
 }
 
