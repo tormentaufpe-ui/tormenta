@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escolha sua Reserva - Atlética Tormenta</title>
+    <title>Atormentando - Atlética Tormenta</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         :root {
             --cor-principal: #3a0e2a;
@@ -72,6 +75,41 @@
                 justify-content: center;
             }
         }
+
+        /* Estilo para o botão flutuante de retorno */
+        .floating-back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--cor-secundaria);
+            color: var(--cor-principal);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+            font-size: 24px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .floating-back-button:hover {
+            background-color: #f0c24f; /* Tom mais claro da cor secundária no hover */
+            transform: scale(1.1);
+        }
+
+        /* Animação de entrada do botão */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .floating-back-button {
+            animation: fadeIn 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -82,7 +120,10 @@
             <a href="camisa-reserva.html" class="botao-link">Camisa</a>
             <a href="acessorios-reserva.html" class="botao-link">Acessórios</a>
         </div>
-        <a href="index.html" class="botao-link">Voltar para a Página Inicial</a>
     </div>
+    
+    <a href="index.html" class="floating-back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 </body>
 </html>
