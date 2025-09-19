@@ -5,6 +5,11 @@
     --cor-texto-escuro: #1a1a1a;
 }
 
+/* Adicionando rolagem suave */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -20,6 +25,16 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 0;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+nav, header, section, footer {
+    animation: fadeIn 1s ease-in-out;
 }
 
 /* Nav - Navegação */
@@ -47,7 +62,6 @@ nav {
 
 /* Header - Introdução */
 header {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('sua-imagem-de-fundo.jpg') no-repeat center center/cover;
     background-color: var(--cor-principal);
     color: var(--cor-texto-claro);
     padding: 60px 0;
@@ -124,6 +138,8 @@ section p {
     max-width: 800px;
     margin: 0 auto 20px auto;
     color: var(--cor-texto-claro);
+    /* Adicionando uma sombra sutil ao texto */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 section ul {
@@ -183,27 +199,6 @@ section ul li {
     margin: 10px auto 15px auto;
     border-radius: 5px;
     border: 1px solid var(--cor-secundaria);
-}
-
-/* Seção Galeria */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
-    margin-top: 40px;
-}
-
-.gallery img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-    transform: scale(1.03);
 }
 
 /* Footer - Contato */
