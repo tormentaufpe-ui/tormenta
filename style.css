@@ -5,7 +5,6 @@
     --cor-texto-escuro: #1a1a1a;
 }
 
-/* Adicionando rolagem suave */
 html {
     scroll-behavior: smooth;
 }
@@ -27,7 +26,6 @@ body {
     padding: 20px 0;
 }
 
-/* Animação de entrada */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -37,27 +35,34 @@ nav, header, section, footer {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Nav - Navegação */
+/* Nav - Navegação (novo estilo) */
 nav {
     text-align: center;
     padding: 15px 0;
-    background-color: var(--cor-secundaria);
+    background-color: transparent; /* Fundo transparente */
+    border-bottom: 2px solid var(--cor-secundaria); /* Adiciona uma linha dourada sutil */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+
 .botao-link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--cor-secundaria);
-    color: var(--cor-texto-escuro);
+    background-color: var(--cor-principal); /* Fundo na cor principal */
+    color: var(--cor-secundaria); /* Texto na cor dourada */
     text-decoration: none;
     font-weight: bold;
+    border: 2px solid var(--cor-secundaria); /* Borda na cor dourada */
     border-radius: 5px;
     text-align: center;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     margin: 0 5px;
 }
 
 .botao-link:hover {
-    background-color: #f0c24f;
+    background-color: var(--cor-secundaria); /* Inverte as cores ao passar o mouse */
+    color: var(--cor-principal);
 }
 
 /* Header - Introdução */
@@ -138,7 +143,6 @@ section p {
     max-width: 800px;
     margin: 0 auto 20px auto;
     color: var(--cor-texto-claro);
-    /* Adicionando uma sombra sutil ao texto */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
