@@ -18,16 +18,7 @@ body {
     background-color: var(--cor-principal);
     color: var(--cor-texto-claro);
     line-height: 1.6;
-}
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: var(--cor-principal);
-    color: var(--cor-texto-claro);
-    line-height: 1.6;
-    padding-top: 80px; /* Adicione esta linha para criar espaço para a barra de navegação */
+    padding-top: 80px; /* Adicionado para evitar que o conteúdo fique atrás da nav */
 }
 
 .container {
@@ -53,16 +44,16 @@ nav {
     padding: 15px 0;
     background-color: var(--cor-principal);
     border-bottom: 2px solid var(--cor-secundaria);
-    position: fixed; /* Mude de 'sticky' para 'fixed' */
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    transition: top 0.3s ease-in-out; /* Transição para o efeito de deslizar */
+    transition: top 0.3s ease-in-out;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .nav-hidden {
-    top: -80px; /* Esconde a navegação acima da tela */
+    top: -80px;
 }
 
 .botao-link {
@@ -222,6 +213,19 @@ section ul li {
     margin: 10px auto 15px auto;
     border-radius: 5px;
     border: 1px solid var(--cor-secundaria);
+}
+
+/* Classes para as cores da identidade */
+.cor-preto {
+    background-color: var(--cor-texto-escuro);
+}
+
+.cor-purpura {
+    background-color: var(--cor-principal);
+}
+
+.cor-amarelo {
+    background-color: var(--cor-secundaria);
 }
 
 /* Footer - Contato */
