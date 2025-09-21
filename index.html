@@ -29,74 +29,60 @@
             </div>
             <h1>ATLÉTICA TORMENTA</h1>
             <p>Forjando a imortalidade</p>
-<script>
-    let prevScrollpos = window.pageYOffset;
-    const navBar = document.querySelector('nav');
-    const navHeight = navBar.offsetHeight;
-
-    window.onscroll = function() {
-        let currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-            navBar.style.top = "0";
-        } else {
-            navBar.style.top = `-${navHeight}px`;
-        }
-        prevScrollpos = currentScrollPos;
-    }
-</script>
-</body>
-</html>
         </div>
     </header>
 
-    <section id="sobre">
-        <div class="container">
-            <h2>Nossa História</h2>
-            <p>A Atlética Tormenta nasceu da união de seis poderosas atléticas - Soberana, Thenebrosta, Reativa, Zangada, Invocados e Radioativa - oriundas do Centro de Tecnologia e Geociências (CTG), Departamento de Energia Nuclear (DEN) e do Departamento de Engenharia Química (DEQ), da Universidade Federal de Pernambuco (UFPE).</p>
-            <p>Nosso propósito é fortalecer o esporte universitário, integrar a comunidade acadêmica e representar com excelência nossos cursos e a instituição, forjando um legado de união e vitórias.</p>
-            
-            <h2>Nossa Missão</h2>
-            <ul>
-                <li>Promover e incentivar a prática desportiva em diversas modalidades.</li>
-                <li>Integrar os estudantes através de atividades esportivas, sociais e culturais.</li>
-                <li>Representar a UFPE em competições universitárias em todos os níveis.</li>
-                <li>Organizar e sediar eventos esportivos, treinos e atividades que fomentem o espírito esportivo e a vida saudável.</li>
-                <li>Buscar a excelência e o desenvolvimento de atletas e equipes.</li>
-                <li>Contribuir para a formação integral dos estudantes, desenvolvendo valores como trabalho em equipe, disciplina, respeito e liderança.</li>
-                <li>Fomentar a união e a cooperação entre as atléticas de origem, mantendo suas identidades, mas operando sob uma gestão unificada em prol dos objetivos comuns da Atlética Tormenta.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="identidade">
-        <div class="container">
-            <h2>Identidade Tormenta</h2>
-            <div class="identidade-grid">
-                <div class="identidade-item">
-                    <h3>Nossas Cores</h3>
-                    <p>Cada cor da Tormenta carrega um significado profundo:</p>
-                    <p><strong>Preto:</strong> Simboliza força inabalável e determinação.</p>
-                    <div class="cor-box" style="background-color: var(--cor-texto-escuro);"></div>
-                    <p><strong>Vermelho Púrpura:</strong> Representa a paixão, a realeza e a intensidade do esporte.</p>
-                    <div class="cor-box" style="background-color: var(--cor-principal);"></div>
-                    <p><strong>Amarelo Ocre:</strong> Remete à energia, calor e à resiliência de nossa comunidade.</p>
-                    <div class="cor-box" style="background-color: var(--cor-secundaria);"></div>
-                </div>
-                <div class="identidade-item">
-                    <h3>Nosso Mascote: Hefesto</h3>
-                    <p>Hefesto, o deus grego da forja, é nosso poderoso mascote.</p>
-                    <p>Ele simboliza o trabalho árduo, a criação, a resiliência e a habilidade de transformar o bruto em algo valioso.</p>
-                    <p>Assim como Hefesto forja ferramentas e obras de arte, a Atlética Tormenta forja atletas e a união inquebrável de sua comunidade, construindo um futuro imortal.</p>
-                <div class="container" style="text-align: center; margin-top: 40px;">
-            <img src="hefesto.png" alt="Ilustração de Hefesto, mascote da Atlética Tormenta" style="max-width: 400px; width: 100%; height: auto; margin-top: 20px;">
- </div>
+    <main>
+        <section id="sobre">
+            <div class="container">
+                <h2>Nossa História</h2>
+                <p>A Atlética Tormenta nasceu da união de seis poderosas atléticas - Soberana, Thenebrosta, Reativa, Zangada, Invocados e Radioativa - oriundas do Centro de Tecnologia e Geociências (CTG), Departamento de Energia Nuclear (DEN) e do Departamento de Engenharia Química (DEQ), da Universidade Federal de Pernambuco (UFPE).</p>
+                <p>Nosso propósito é fortalecer o esporte universitário, integrar a comunidade acadêmica e representar com excelência nossos cursos e a instituição, forjando um legado de união e vitórias.</p>
+                
+                <h2>Nossa Missão</h2>
+                <ul>
+                    <li>Promover e incentivar a prática desportiva em diversas modalidades.</li>
+                    <li>Integrar os estudantes através de atividades esportivas, sociais e culturais.</li>
+                    <li>Representar a UFPE em competições universitárias em todos os níveis.</li>
+                    <li>Organizar e sediar eventos esportivos, treinos e atividades que fomentem o espírito esportivo e a vida saudável.</li>
+                    <li>Buscar a excelência e o desenvolvimento de atletas e equipes.</li>
+                    <li>Contribuir para a formação integral dos estudantes, desenvolvendo valores como trabalho em equipe, disciplina, respeito e liderança.</li>
+                    <li>Fomentar a união e a cooperação entre as atléticas de origem, mantendo suas identidades, mas operando sob uma gestão unificada em prol dos objetivos comuns da Atlética Tormenta.</li>
+                </ul>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="identidade">
+            <div class="container">
+                <h2>Identidade Tormenta</h2>
+                <div class="identidade-grid">
+                    <div class="identidade-item">
+                        <h3>Nossas Cores</h3>
+                        <p>Cada cor da Tormenta carrega um significado profundo:</p>
+                        <p><strong>Preto:</strong> Simboliza força inabalável e determinação.</p>
+                        <div class="cor-box cor-preto"></div>
+                        <p><strong>Vermelho Púrpura:</strong> Representa a paixão, a realeza e a intensidade do esporte.</p>
+                        <div class="cor-box cor-purpura"></div>
+                        <p><strong>Amarelo Ocre:</strong> Remete à energia, calor e à resiliência de nossa comunidade.</p>
+                        <div class="cor-box cor-amarelo"></div>
+                    </div>
+                    <div class="identidade-item">
+                        <h3>Nosso Mascote: Hefesto</h3>
+                        <p>Hefesto, o deus grego da forja, é nosso poderoso mascote.</p>
+                        <p>Ele simboliza o trabalho árduo, a criação, a resiliência e a habilidade de transformar o bruto em algo valioso.</p>
+                        <p>Assim como Hefesto forja ferramentas e obras de arte, a Atlética Tormenta forja atletas e a união inquebrável de sua comunidade, construindo um futuro imortal.</p>
+                        <div class="container" style="text-align: center; margin-top: 40px;">
+                            <img src="hefesto.png" alt="Ilustração de Hefesto, mascote da Atlética Tormenta" style="max-width: 400px; width: 100%; height: auto; margin-top: 20px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <h3>Faça Parte da Tormenta</h3>
+            <h3>Faça parte da Tormenta</h3>
             <p>Siga-nos nas redes sociais e fique por dentro de todas as novidades, eventos e conquistas!</p>
             <div class="social-links">
                 <a href="https://www.instagram.com/tormentaufpe" target="_blank" aria-label="Instagram"><img src="https://img.icons8.com/ios-filled/50/d4af37/instagram-new.png" alt="Instagram" width="30"></a>
@@ -106,6 +92,20 @@
         </div>
     </footer>
 
+    <script>
+        let prevScrollpos = window.pageYOffset;
+        const navBar = document.querySelector('nav');
+        const navHeight = navBar.offsetHeight;
+
+        window.onscroll = function() {
+            let currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                navBar.style.top = "0";
+            } else {
+                navBar.style.top = `-${navHeight}px`;
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
 </body>
 </html>
-
