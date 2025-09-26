@@ -465,7 +465,104 @@ footer p {
     background-color: #f0c24f;
     transform: scale(1.05);
 }
+/* ======================================================
+--- ESTILOS ESPECÍFICOS DA PÁGINA DE FORMULÁRIO (camisa-reserva.html) ---
+--- Ajustado para a estrutura do formulário embutido do usuário ---
+======================================================
+*/
+/* Reutilizando estilos base do container de páginas de transição */
+.container.form-container {
+    max-width: 750px;
+    padding: 40px;
+    border: 3px solid var(--cor-secundaria); 
+    animation: fadeIn 0.8s forwards;
+    /* Adicionando margem top e bottom para que não fique colado no topo */
+    margin-top: 80px; 
+    margin-bottom: 80px;
+}
 
+.form-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.form-container p {
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--cor-texto-claro);
+    font-size: 1em;
+}
+
+/* Estilo para inputs e selects */
+.form-group input, 
+.form-group select {
+    padding: 12px 15px;
+    border: 2px solid var(--cor-background-secao); /* Borda discreta */
+    border-radius: 5px;
+    background-color: var(--cor-principal); /* Cor de fundo escura */
+    color: var(--cor-texto-claro);
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+/* Sobrescreve a cor do texto do select para que fique visível */
+.form-group select {
+    color: var(--cor-texto-escuro); 
+    background-color: var(--cor-texto-claro);
+    border: 2px solid var(--cor-secundaria);
+}
+.form-group select option {
+    color: var(--cor-texto-escuro);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    outline: none;
+}
+
+/* Estilo do botão de envio */
+.submit-button {
+    padding: 15px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal); /* Cor principal é o roxo escuro */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #f0c24f;
+    transform: scale(1.02);
+}
+
+/* Estilo do botão de voltar flutuante (floating-back-button) já existe no CSS global, mantendo a consistência. */
 /* ======================================================
 --- MEDIA QUERIES (RESPONSIVIDADE) ---
 ======================================================
