@@ -1,4 +1,11 @@
 <style>
+    /* * CORREÇÃO CHAVE PARA ADAPTABILIDADE MOBILE
+     * Garante que nenhum elemento force a rolagem horizontal (causa do "corte")
+     */
+    html, body {
+        overflow-x: hidden; 
+    }
+    
     :root {
         --cor-principal: #3a0e2a;
         --cor-secundaria: #d4af37;
@@ -107,7 +114,6 @@
         padding: 60px 20px;
         border-radius: 8px;
         margin-bottom: 30px;
-        /* Verifique se o caminho da imagem está correto: url('img/tormenta-fundo.png') */
         background: linear-gradient(to top, var(--cor-principal) 0%, rgba(58, 14, 42, 0.5) 100%), url('img/tormenta-fundo.png') no-repeat center center/cover;
     }
     .hero h1 {
@@ -262,8 +268,8 @@
     @media (max-width: 768px) {
         /* CORREÇÃO 1: Garante que o menu ocupe toda a largura sem margens laterais */
         nav {
-            margin: 0; /* NOVO */
-            padding: 0; /* NOVO */
+            margin: 0; 
+            padding: 0; 
             display: none;
             position: absolute;
             top: 100px;
@@ -281,7 +287,8 @@
             flex-direction: column;
             gap: 5px;
             text-align: center;
-            /* Se for preciso mais correção: adicione margin: 0 auto; e padding: 10px 0; */
+            /* Zera margens laterais na lista interna, se houver. */
+            margin: 0; 
             padding: 10px 0;
         }
         nav a {
@@ -299,12 +306,26 @@
         }
         main {
             padding-top: 90px;
+            /* Zera paddings laterais para garantir que a rolagem horizontal não seja forçada */
+            padding-left: 0;
+            padding-right: 0;
         }
 
         /* CORREÇÃO 2: Garante que o rodapé não cause rolagem horizontal */
         footer {
             padding-left: 0;
             padding-right: 0;
+        }
+        
+        /* CORREÇÃO 3: Ajuste fino para os elementos internos do header, se o corte persistir na logo/ícone */
+        header {
+             padding: 15px 0; /* Zera padding horizontal do header, que já é fixo */
+        }
+        .logo img {
+             margin-left: 10px; /* Pequeno ajuste de margem na logo para dar um respiro */
+        }
+        .menu-icon {
+             margin-right: 10px; /* Pequeno ajuste de margem no ícone */
         }
     }
 
