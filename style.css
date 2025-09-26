@@ -427,10 +427,9 @@ footer p {
     background-color: var(--cor-background-secao);
     z-index: 5;
     
-    /* BORDA AMARELA ADICIONADA AQUI */
+    /* BORDA AMARELA: */
     border: 3px solid var(--cor-secundaria); 
     
-    /* Remover as regras position: absolute e transform: translate */
     animation: fadeIn 0.8s forwards; 
 }
 .container.escolhas-container h1 {
@@ -440,6 +439,8 @@ footer p {
 .container.escolhas-container p {
     font-size: 1.2em;
     margin-bottom: 40px;
+    /* CORREÇÃO: Alinha o texto de instrução ao centro */
+    text-align: center; 
 }
 .botoes-container {
     display: flex;
@@ -464,7 +465,6 @@ footer p {
     background-color: #f0c24f;
     transform: scale(1.05);
 }
-
 
 /* ======================================================
 --- MEDIA QUERIES (RESPONSIVIDADE) ---
