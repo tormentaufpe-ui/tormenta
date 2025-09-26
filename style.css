@@ -1,9 +1,17 @@
 <style>
+    /* * * CORREÇÃO CRÍTICA DO BOX MODEL * * */
+    /* Garante que padding e border NÃO adicionem largura, evitando estouro lateral */
+    * {
+        box-sizing: border-box;
+    }
+    
     /* * CORREÇÃO CHAVE PARA ADAPTABILIDADE MOBILE
-     * Garante que nenhum elemento force a rolagem horizontal (causa do "corte")
+     * Garante que nenhum elemento force a rolagem horizontal
      */
     html, body {
         overflow-x: hidden; 
+        /* Reforço da largura total */
+        width: 100%;
     }
     
     :root {
@@ -27,7 +35,11 @@
     }
     header {
         background-color: var(--cor-background-secao);
-        padding: 15px 0;
+        /* * NOVO: Removemos o padding vertical e usamos height, se necessário, 
+           * mas vamos manter o padding por enquanto para evitar problemas de altura.
+           * A chave é garantir que o padding horizontal seja zero (15px 0).
+           */
+        padding: 15px 0; 
         text-align: center;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         display: flex;
@@ -224,6 +236,8 @@
         flex-direction: column;
         align-items: center;
         gap: 15px; 
+        /* Reforço de largura total no footer também */
+        width: 100%;
     }
     footer h3 {
         margin-bottom: 0;
@@ -287,7 +301,6 @@
             flex-direction: column;
             gap: 5px;
             text-align: center;
-            /* Zera margens laterais na lista interna, se houver. */
             margin: 0; 
             padding: 10px 0;
         }
@@ -297,16 +310,20 @@
         }
         .menu-icon {
             display: block;
+            /* Garante que o ícone tenha um pequeno espaço da borda */
+            margin-right: 15px; 
         }
         .logo img {
             height: 60px;
+            /* Garante que a logo tenha um pequeno espaço da borda */
+            margin-left: 15px;
         }
         .hero h1 {
             font-size: 2.5em;
         }
         main {
             padding-top: 90px;
-            /* Zera paddings laterais para garantir que a rolagem horizontal não seja forçada */
+            /* Removemos o padding horizontal do main no mobile. */
             padding-left: 0;
             padding-right: 0;
         }
@@ -315,17 +332,6 @@
         footer {
             padding-left: 0;
             padding-right: 0;
-        }
-        
-        /* CORREÇÃO 3: Ajuste fino para os elementos internos do header, se o corte persistir na logo/ícone */
-        header {
-             padding: 15px 0; /* Zera padding horizontal do header, que já é fixo */
-        }
-        .logo img {
-             margin-left: 10px; /* Pequeno ajuste de margem na logo para dar um respiro */
-        }
-        .menu-icon {
-             margin-right: 10px; /* Pequeno ajuste de margem no ícone */
         }
     }
 
