@@ -12,7 +12,8 @@
         color: var(--cor-texto-claro);
         margin: 0;
         padding: 0;
-        line-height: 1.6;
+        line-height: 1.8; /* Ajustado para melhor leitura */
+        font-size: 1.1em; /* Ajustado para melhor leitura */
         display: flex;
         flex-direction: column;
         min-height: 100vh;
@@ -26,6 +27,8 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        /* NOVO: Posição relativa para o menu mobile se basear nele */
+        position: relative; 
     }
     .logo img {
         height: 70px;
@@ -49,11 +52,21 @@
         font-size: 1.1em;
         padding: 8px 15px;
         border-radius: 5px;
-        transition: background-color 0.3s ease, color 0.3s ease;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
     nav a:hover {
         background-color: var(--cor-secundaria);
         color: var(--cor-principal);
+        transform: scale(1.05); /* Animação: Reincorporada */
+    }
+    /* NOVO: Estilo para o ícone do menu hamburguer */
+    .menu-icon {
+        display: none; /* Oculto no desktop */
+        font-size: 28px;
+        color: var(--cor-secundaria);
+        cursor: pointer;
+        margin-right: 20px;
+        z-index: 100;
     }
     main {
         flex: 1;
@@ -68,12 +81,19 @@
         border-radius: 8px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         margin-bottom: 30px;
+        transition: box-shadow 0.3s ease, transform 0.3s ease; /* Animação: Reincorporada */
+    }
+    section:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+        transform: translateY(-5px); /* Animação: Reincorporada */
     }
     h1, h2, h3 {
         font-family: 'Oswald', sans-serif;
         color: var(--cor-secundaria);
         text-align: center;
         margin-bottom: 20px;
+        letter-spacing: 4px; /* Novo: Destaque para títulos */
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Novo: Destaque para títulos */
     }
     h1 { font-size: 2.8em; }
     h2 { font-size: 2.2em; }
@@ -81,9 +101,10 @@
     .hero {
         text-align: center;
         padding: 60px 20px;
-        background: linear-gradient(rgba(58, 14, 42, 0.8), rgba(58, 14, 42, 0.8)), url('img/tormenta-fundo.png') no-repeat center center/cover;
         border-radius: 8px;
         margin-bottom: 30px;
+        /* NOVO: Fundo dinâmico com gradiente */
+        background: linear-gradient(to top, var(--cor-principal) 0%, rgba(58, 14, 42, 0.5) 100%), url('img/tormenta-fundo.png') no-repeat center center/cover;
     }
     .hero h1 {
         color: var(--cor-secundaria);
@@ -102,35 +123,25 @@
     }
     .grid-item {
         background-color: #4a1336;
-        padding: 25px;
+        padding: 30px; /* Ajustado */
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
+        border: 2px solid transparent; /* Animação: Borda transparente */
+        transition: border 0.3s ease;
+    }
+    .grid-item:hover {
+        border: 2px solid var(--cor-secundaria); /* Animação: Borda no hover */
     }
     .grid-item h3 {
         color: var(--cor-secundaria);
         margin-top: 0;
         margin-bottom: 15px;
     }
-    .color-palette {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        margin: 10px 0;
-    }
-    .color-box {
-        width: 30px;
-        height: 30px;
-        border: 2px solid var(--cor-texto-claro);
-        border-radius: 4px;
-    }
-    .color-black { background-color: #000000; }
-    .color-red-purple { background-color: #3a0e2a; }
-    .color-yellow-ochre { background-color: #d4af37; }
+    /* Estilos de Mascote, Cores e Galeria (mantidos) */
     .mascote-content {
         display: flex;
         flex-direction: column;
@@ -148,17 +159,22 @@
         margin-top: 0;
         max-width: 400px;
     }
-    @media (min-width: 768px) {
-        .mascote-content {
-            flex-direction: row;
-            text-align: left;
-            justify-content: center;
-            gap: 30px;
-        }
-        .mascote-content img {
-            margin-bottom: 0;
-        }
+    .color-palette {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 10px 0;
     }
+    .color-box {
+        width: 30px;
+        height: 30px;
+        border: 2px solid var(--cor-texto-claro);
+        border-radius: 4px;
+    }
+    .color-black { background-color: #000000; }
+    .color-red-purple { background-color: #3a0e2a; }
+    .color-yellow-ochre { background-color: #d4af37; }
     .gallery {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -185,36 +201,99 @@
         color: var(--cor-secundaria);
         background-color: #4a1336;
     }
+    
+    /* NOVO: Estilos do Footer Organizado (coluna centralizada) */
     footer {
         background-color: var(--cor-background-secao);
         color: var(--cor-texto-claro);
-        text-align: center;
-        padding: 20px 0;
+        padding: 30px 20px;
         margin-top: auto;
         box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-    }
-    .floating-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
+        border-top: 5px solid var(--cor-secundaria);
+        
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background-color: var(--cor-secundaria);
-        color: var(--cor-principal);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-        text-decoration: none;
-        font-size: 28px;
-        transition: background-color 0.3s, transform 0.3s;
+        gap: 15px; 
     }
-    .floating-button:hover {
-        background-color: #f0c24f;
-        transform: scale(1.1);
+    footer h3 {
+        margin-bottom: 0;
     }
+    footer p {
+        text-align: center;
+        margin: 0;
+    }
+    .social-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+    .social-links a {
+        color: var(--cor-secundaria);
+        font-size: 30px;
+        transition: color 0.3s, transform 0.3s ease;
+    }
+    .social-links a:hover {
+        color: #f0c24f;
+        transform: rotate(360deg) scale(1.2); /* Animação: Rotação no hover */
+    }
+    .copyright {
+        margin-top: 10px;
+        font-size: 0.9em;
+    }
+
+    /* Media Queries */
+    @media (min-width: 768px) {
+        .mascote-content {
+            flex-direction: row;
+            text-align: left;
+            justify-content: center;
+            gap: 30px;
+        }
+        .mascote-content img {
+            margin-bottom: 0;
+        }
+    }
+    
+    /* NOVO: Regras de Mobile para o Menu Hamburguer */
+    @media (max-width: 768px) {
+        /* Esconde o menu desktop e mostra o ícone */
+        nav {
+            display: none;
+            position: absolute;
+            top: 100px;
+            right: 0;
+            width: 100%;
+            background-color: var(--cor-background-secao);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            z-index: 50;
+        }
+        nav.open { /* Ativada por JavaScript */
+            display: block;
+        }
+        nav ul {
+            flex-direction: column;
+            gap: 5px;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            display: block;
+            padding: 15px;
+        }
+        .menu-icon {
+            display: block; /* Mostra o ícone */
+        }
+        .logo img {
+            /* Diminui o logo no mobile se necessário */
+            height: 60px;
+        }
+        .hero h1 {
+            font-size: 2.5em; /* Reduz o tamanho do H1 no mobile */
+        }
+    }
+
+    /* Animação */
     @keyframes bounceIn {
         0% { transform: scale(0.3); opacity: 0; }
         50% { transform: scale(1.1); opacity: 1; }
@@ -223,20 +302,5 @@
     }
     .floating-button {
         animation: bounceIn 0.8s ease-out;
-    }
-    .social-links {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        margin-top: 15px;
-    }
-    .social-links a {
-        color: var(--cor-secundaria);
-        font-size: 30px;
-        transition: color 0.3s, transform 0.3s;
-    }
-    .social-links a:hover {
-        color: #f0c24f;
-        transform: scale(1.1);
     }
 </style>
