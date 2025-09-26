@@ -17,7 +17,14 @@
             --cor-secundaria: #d4af37;
             --cor-texto-claro: #f8f8f8;
             --cor-texto-escuro: #1a1a1a;
+            --cor-background-secao: #4a1336; /* Adicionada variável para clareza */
         }
+        
+        /* * NOVO: Garante o Box Model correto para layouts de grade */
+        * {
+            box-sizing: border-box; 
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--cor-principal);
@@ -31,47 +38,99 @@
         }
         .container {
             width: 90%;
-            max-width: 900px;
+            max-width: 1000px; /* Aumentado o max-width para acomodar a grade */
             margin: 40px auto;
             padding: 30px;
-            background-color: #4a1336;
+            background-color: var(--cor-background-secao); /* Usando variável */
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
         h1, h2, h3 {
             font-family: 'Oswald', sans-serif;
             color: var(--cor-secundaria);
-            margin-top: 30px;
             text-align: center;
         }
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        h2 {
-            font-size: 2em;
-            border-bottom: 2px solid var(--cor-secundaria);
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-        }
-        h3 {
-            font-size: 1.5em;
-            margin-bottom: 5px;
-        }
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            text-align: center;
+            font-size: 2.8em;
             margin-top: 0;
             margin-bottom: 20px;
         }
+        h2 {
+            font-size: 2.2em;
+            border-bottom: 2px solid var(--cor-secundaria);
+            padding-bottom: 5px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+        h3 {
+            font-size: 1.6em; /* Ajustado para melhor hierarquia */
+            margin-bottom: 5px;
+        }
+        p {
+            font-size: 1.05em;
+            line-height: 1.6;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 10px; /* Reduzido o margin-bottom para a grade */
+        }
         .description {
             font-size: 0.9em;
-            margin-top: -10px;
+            margin-top: 0;
             margin-bottom: 20px;
             font-style: italic;
+            opacity: 0.8;
+        }
+        .role-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--cor-texto-claro);
+            margin-bottom: 5px;
+        }
+
+        /* --- ESTILOS DE GRADE DA DIRETORIA (GRID) --- */
+        .diretoria-grupo {
+            display: grid;
+            /* Layout: 3 colunas de largura igual no desktop */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+            padding: 0 10px; /* Pequeno padding para alinhar */
         }
         
+        .membro-card {
+            background-color: var(--cor-principal);
+            padding: 20px 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid transparent;
+            text-align: center;
+        }
+        
+        .membro-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cor-secundaria);
+        }
+        
+        .membro-card h3 {
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+        
+        .membro-card .description {
+            margin-top: 5px;
+        }
+        
+        /* Ajuste para o grupo de Coordenadoria (mais simples) */
+        .coordenadoria-grid {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+
         /* Estilo para o botão flutuante de retorno */
         .floating-back-button {
             position: fixed;
@@ -93,7 +152,7 @@
         }
         
         .floating-back-button:hover {
-            background-color: #f0c24f; /* Tom mais claro da cor secundária no hover */
+            background-color: #f0c24f;
             transform: scale(1.1);
         }
 
@@ -106,6 +165,29 @@
         .floating-back-button {
             animation: fadeIn 0.5s ease-in-out;
         }
+        
+        /* MEDIA QUERY para Mobile */
+        @media (max-width: 600px) {
+             .container {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            h1 {
+                font-size: 2.2em;
+            }
+            h2 {
+                font-size: 1.8em;
+                margin-top: 30px;
+            }
+            .diretoria-grupo {
+                grid-template-columns: 1fr; /* Força coluna única para melhor leitura */
+                gap: 15px;
+            }
+            .coordenadoria-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas para as coordenadorias */
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -113,55 +195,91 @@
         <h1>Diretoria dos Atormentados</h1>
         
         <h2>Conselho Fiscal</h2>
-        <h3>Mariana</h3>
-        <p><strong>Conselheira</strong></p>
-        <p class="description">Responsável pela fiscalização financeira e patrimonial da Atlética.</p>
+        <div class="diretoria-grupo">
+            <div class="membro-card">
+                <h3>Mariana</h3>
+                <p class="role-title">Conselheira</p>
+                <p class="description">Responsável pela fiscalização financeira e patrimonial da Atlética.</p>
+            </div>
+        </div>
 
         <h2>Diretoria Executiva</h2>
-        <h3>Pedro Phelipe</h3>
-        <p><strong>Presidente</strong></p>
-        <p class="description">Representa a Atlética, convoca e preside reuniões e coordena as atividades gerais.</p>
+        <div class="diretoria-grupo">
+            
+            <div class="membro-card">
+                <h3>Pedro Phelipe</h3>
+                <p class="role-title">Presidente</p>
+                <p class="description">Representa a Atlética, convoca e preside reuniões e coordena as atividades gerais.</p>
+            </div>
 
-        <h3>José Guilherme</h3>
-        <p><strong>Vice-Presidente</strong></p>
-        <p class="description">Substitui o Presidente em ausências, auxilia em suas atividades e coordena projetos específicos.</p>
+            <div class="membro-card">
+                <h3>José Guilherme</h3>
+                <p class="role-title">Vice-Presidente</p>
+                <p class="description">Substitui o Presidente em ausências, auxilia em suas atividades e coordena projetos específicos.</p>
+            </div>
 
-        <h3>Alencar</h3>
-        <p><strong>Diretor de Eventos</strong></p>
-        <p class="description">Planeja, organiza e coordena festas, confraternizações e eventos recreativos da Atlética.</p>
+            <div class="membro-card">
+                <h3>Alencar</h3>
+                <p class="role-title">Diretor de Eventos</p>
+                <p class="description">Planeja, organiza e coordena festas, confraternizações e eventos recreativos da Atlética.</p>
+            </div>
 
-        <h3>Felix</h3>
-        <p><strong>Diretor Sociocultural</strong></p>
-        <p class="description">Organiza eventos de integração, atividades culturais e ações que promovem o convívio entre os membros.</p>
+            <div class="membro-card">
+                <h3>Felix</h3>
+                <p class="role-title">Diretor Sociocultural</p>
+                <p class="description">Organiza eventos de integração, atividades culturais e ações que promovem o convívio entre os membros.</p>
+            </div>
 
-        <h3>(A definir)</h3>
-        <p><strong>Diretor de Esportes</strong></p>
-        <p class="description">Responsável por toda a estrutura esportiva, incluindo treinos, campeonatos, torneios e a supervisão da Coordenadoria de Modalidade.</p>
+            <div class="membro-card placeholder-card">
+                <h3>(A definir)</h3>
+                <p class="role-title">Diretor de Esportes</p>
+                <p class="description">Responsável por toda a estrutura esportiva, incluindo treinos, campeonatos, torneios e a supervisão da Coordenadoria de Modalidade.</p>
+            </div>
 
-        <h3>Marcus</h3>
-        <p><strong>Diretor de Marketing</strong></p>
-        <p class="description">Gerencia a imagem e a comunicação da Atlética, prospecta patrocínios e coordena os Diretores Auxiliares.</p>
-        
-        <h3>(A definir)</h3>
-        <p><strong>Diretor Auxiliar de Marketing</strong></p>
-        <p class="description">As atribuições são as mesmas do Diretor de Marketing, limitadas às funções subordinadas diretamente a ele.</p>
+            <div class="membro-card">
+                <h3>Marcus</h3>
+                <p class="role-title">Diretor de Marketing</p>
+                <p class="description">Gerencia a imagem e a comunicação da Atlética, prospecta patrocínios e coordena os Diretores Auxiliares.</p>
+            </div>
+            
+            <div class="membro-card placeholder-card">
+                <h3>(A definir)</h3>
+                <p class="role-title">Diretor Auxiliar de Marketing</p>
+                <p class="description">As atribuições são as mesmas do Diretor de Marketing, limitadas às funções subordinadas diretamente a ele.</p>
+            </div>
+            
+        </div>
 
         <h2>Coordenadoria de Modalidade</h2>
         <p class="description">Os responsáveis por supervisionar e organizar a respectiva modalidade esportiva.</p>
-        <h3>Guilherme</h3>
-        <p><strong>Coordenador de Handebol</strong></p>
-        
-        <h3>Jhonny</h3>
-        <p><strong>Coordenador de Futsal</strong></p>
+        <div class="diretoria-grupo coordenadoria-grid">
+            
+            <div class="membro-card">
+                <h3>Guilherme</h3>
+                <p class="role-title">Coordenador de Handebol</p>
+            </div>
+            
+            <div class="membro-card">
+                <h3>Jhonny</h3>
+                <p class="role-title">Coordenador de Futsal</p>
+            </div>
 
-        <h3>Helon</h3>
-        <p><strong>Coordenador de Voleibol</strong></p>
-        
-        <h3>Kevin Richard</h3>
-        <p><strong>Coordenador de eSports</strong></p>
+            <div class="membro-card">
+                <h3>Helon</h3>
+                <p class="role-title">Coordenador de Voleibol</p>
+            </div>
+            
+            <div class="membro-card">
+                <h3>Kevin Richard</h3>
+                <p class="role-title">Coordenador de eSports</p>
+            </div>
 
-        <h3>Delmario</h3>
-        <p><strong>Coordenador de Basquete</strong></p>
+            <div class="membro-card">
+                <h3>Delmario</h3>
+                <p class="role-title">Coordenador de Basquete</p>
+            </div>
+            
+        </div>
     </div>
 
     <a href="index.html" class="floating-back-button">
@@ -169,5 +287,3 @@
     </a>
 </body>
 </html>
-
-
