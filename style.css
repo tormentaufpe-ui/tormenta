@@ -12,8 +12,8 @@
         color: var(--cor-texto-claro);
         margin: 0;
         padding: 0;
-        line-height: 1.8; /* Ajustado para melhor leitura */
-        font-size: 1.1em; /* Ajustado para melhor leitura */
+        line-height: 1.8;
+        font-size: 1.1em;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
@@ -27,8 +27,13 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        /* NOVO: Posição relativa para o menu mobile se basear nele */
-        position: relative; 
+        position: relative;
+        /* NOVO: Garante que o header (e o menu hamburguer) fique fixo no topo */
+        position: fixed; 
+        top: 0;
+        left: 0;
+        z-index: 1000; /* Garante que fique acima de todo o conteúdo */
+        transition: top 0.3s ease-in-out; /* Transição suave para o scroll */
     }
     .logo img {
         height: 70px;
@@ -57,23 +62,25 @@
     nav a:hover {
         background-color: var(--cor-secundaria);
         color: var(--cor-principal);
-        transform: scale(1.05); /* Animação: Reincorporada */
+        transform: scale(1.05);
     }
-    /* NOVO: Estilo para o ícone do menu hamburguer */
     .menu-icon {
-        display: none; /* Oculto no desktop */
+        display: none;
         font-size: 28px;
         color: var(--cor-secundaria);
         cursor: pointer;
         margin-right: 20px;
         z-index: 100;
     }
+    /* NOVO: Adiciona um padding ao topo para que o conteúdo não fique escondido sob o header fixo */
     main {
+        padding-top: 100px; /* Deve ser maior que a altura do header (70px + padding) */
         flex: 1;
         width: 100%;
         max-width: 1200px;
         margin: 20px auto;
-        padding: 0 20px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     section {
         background-color: var(--cor-background-secao);
@@ -81,19 +88,19 @@
         border-radius: 8px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         margin-bottom: 30px;
-        transition: box-shadow 0.3s ease, transform 0.3s ease; /* Animação: Reincorporada */
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
     section:hover {
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
-        transform: translateY(-5px); /* Animação: Reincorporada */
+        transform: translateY(-5px);
     }
     h1, h2, h3 {
         font-family: 'Oswald', sans-serif;
         color: var(--cor-secundaria);
         text-align: center;
         margin-bottom: 20px;
-        letter-spacing: 4px; /* Novo: Destaque para títulos */
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Novo: Destaque para títulos */
+        letter-spacing: 4px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     }
     h1 { font-size: 2.8em; }
     h2 { font-size: 2.2em; }
@@ -103,7 +110,6 @@
         padding: 60px 20px;
         border-radius: 8px;
         margin-bottom: 30px;
-        /* NOVO: Fundo dinâmico com gradiente */
         background: linear-gradient(to top, var(--cor-principal) 0%, rgba(58, 14, 42, 0.5) 100%), url('img/tormenta-fundo.png') no-repeat center center/cover;
     }
     .hero h1 {
@@ -123,41 +129,23 @@
     }
     .grid-item {
         background-color: #4a1336;
-        padding: 30px; /* Ajustado */
+        padding: 30px;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 2px solid transparent; /* Animação: Borda transparente */
+        border: 2px solid transparent;
         transition: border 0.3s ease;
     }
     .grid-item:hover {
-        border: 2px solid var(--cor-secundaria); /* Animação: Borda no hover */
+        border: 2px solid var(--cor-secundaria);
     }
     .grid-item h3 {
         color: var(--cor-secundaria);
         margin-top: 0;
         margin-bottom: 15px;
-    }
-    /* Estilos de Mascote, Cores e Galeria (mantidos) */
-    .mascote-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .mascote-content img {
-        max-width: 200px;
-        height: auto;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-    .mascote-content p {
-        margin-top: 0;
-        max-width: 400px;
     }
     .color-palette {
         display: flex;
@@ -175,6 +163,23 @@
     .color-black { background-color: #000000; }
     .color-red-purple { background-color: #3a0e2a; }
     .color-yellow-ochre { background-color: #d4af37; }
+    .mascote-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .mascote-content img {
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .mascote-content p {
+        margin-top: 0;
+        max-width: 400px;
+    }
     .gallery {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -202,7 +207,7 @@
         background-color: #4a1336;
     }
     
-    /* NOVO: Estilos do Footer Organizado (coluna centralizada) */
+    /* ESTILOS DO RODAPÉ ORGANIZADO */
     footer {
         background-color: var(--cor-background-secao);
         color: var(--cor-texto-claro);
@@ -235,14 +240,14 @@
     }
     .social-links a:hover {
         color: #f0c24f;
-        transform: rotate(360deg) scale(1.2); /* Animação: Rotação no hover */
+        transform: rotate(360deg) scale(1.2);
     }
     .copyright {
         margin-top: 10px;
         font-size: 0.9em;
     }
 
-    /* Media Queries */
+    /* MEDIA QUERIES */
     @media (min-width: 768px) {
         .mascote-content {
             flex-direction: row;
@@ -255,20 +260,21 @@
         }
     }
     
-    /* NOVO: Regras de Mobile para o Menu Hamburguer */
+    /* REGRAS DE MOBILE PARA O MENU HAMBURGUER (CORRIGIDAS) */
     @media (max-width: 768px) {
-        /* Esconde o menu desktop e mostra o ícone */
         nav {
+            /* CORREÇÃO: Garante que o menu ocupe toda a largura da tela */
             display: none;
             position: absolute;
             top: 100px;
             right: 0;
-            width: 100%;
+            left: 0; /* NOVO: Garante o alinhamento à esquerda */
+            width: 100%; 
             background-color: var(--cor-background-secao);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             z-index: 50;
         }
-        nav.open { /* Ativada por JavaScript */
+        nav.open { 
             display: block;
         }
         nav ul {
@@ -282,25 +288,25 @@
             padding: 15px;
         }
         .menu-icon {
-            display: block; /* Mostra o ícone */
+            display: block;
         }
         .logo img {
-            /* Diminui o logo no mobile se necessário */
             height: 60px;
         }
         .hero h1 {
-            font-size: 2.5em; /* Reduz o tamanho do H1 no mobile */
+            font-size: 2.5em;
+        }
+        /* Ajuste no padding do main para telas menores */
+        main {
+            padding-top: 90px;
         }
     }
 
-    /* Animação */
+    /* ANIMAÇÃO */
     @keyframes bounceIn {
         0% { transform: scale(0.3); opacity: 0; }
         50% { transform: scale(1.1); opacity: 1; }
         70% { transform: scale(0.9); }
         100% { transform: scale(1); }
-    }
-    .floating-button {
-        animation: bounceIn 0.8s ease-out;
     }
 </style>
