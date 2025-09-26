@@ -27,13 +27,11 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        position: relative;
-        /* NOVO: Garante que o header (e o menu hamburguer) fique fixo no topo */
         position: fixed; 
         top: 0;
         left: 0;
-        z-index: 1000; /* Garante que fique acima de todo o conteúdo */
-        transition: top 0.3s ease-in-out; /* Transição suave para o scroll */
+        z-index: 1000;
+        transition: top 0.3s ease-in-out;
     }
     .logo img {
         height: 70px;
@@ -72,9 +70,8 @@
         margin-right: 20px;
         z-index: 100;
     }
-    /* NOVO: Adiciona um padding ao topo para que o conteúdo não fique escondido sob o header fixo */
     main {
-        padding-top: 100px; /* Deve ser maior que a altura do header (70px + padding) */
+        padding-top: 100px;
         flex: 1;
         width: 100%;
         max-width: 1200px;
@@ -110,6 +107,7 @@
         padding: 60px 20px;
         border-radius: 8px;
         margin-bottom: 30px;
+        /* Verifique se o caminho da imagem está correto: url('img/tormenta-fundo.png') */
         background: linear-gradient(to top, var(--cor-principal) 0%, rgba(58, 14, 42, 0.5) 100%), url('img/tormenta-fundo.png') no-repeat center center/cover;
     }
     .hero h1 {
@@ -262,13 +260,15 @@
     
     /* REGRAS DE MOBILE PARA O MENU HAMBURGUER (CORRIGIDAS) */
     @media (max-width: 768px) {
+        /* CORREÇÃO 1: Garante que o menu ocupe toda a largura sem margens laterais */
         nav {
-            /* CORREÇÃO: Garante que o menu ocupe toda a largura da tela */
+            margin: 0; /* NOVO */
+            padding: 0; /* NOVO */
             display: none;
             position: absolute;
             top: 100px;
             right: 0;
-            left: 0; /* NOVO: Garante o alinhamento à esquerda */
+            left: 0; 
             width: 100%; 
             background-color: var(--cor-background-secao);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -281,6 +281,7 @@
             flex-direction: column;
             gap: 5px;
             text-align: center;
+            /* Se for preciso mais correção: adicione margin: 0 auto; e padding: 10px 0; */
             padding: 10px 0;
         }
         nav a {
@@ -296,9 +297,14 @@
         .hero h1 {
             font-size: 2.5em;
         }
-        /* Ajuste no padding do main para telas menores */
         main {
             padding-top: 90px;
+        }
+
+        /* CORREÇÃO 2: Garante que o rodapé não cause rolagem horizontal */
+        footer {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 
