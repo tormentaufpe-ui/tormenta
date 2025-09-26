@@ -5,123 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessórios - Atlética Tormenta</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --cor-principal: #3a0e2a;
-            --cor-secundaria: #d4af37;
-            --cor-texto-claro: #f8f8f8;
-            --cor-texto-escuro: #1a1a1a;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--cor-principal);
-            color: var(--cor-texto-claro);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: #4a1336;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-        }
-        h1 {
-            font-family: 'Oswald', sans-serif;
-            color: var(--cor-secundaria);
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        input, select {
-            padding: 10px;
-            border: 1px solid var(--cor-secundaria);
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--cor-texto-claro);
-            font-size: 1em;
-        }
-        input::placeholder {
-            color: rgba(248, 248, 248, 0.5);
-        }
-       .submit-button {
-            padding: 15px;
-            background-color: var(--cor-secundaria);
-            color: var(--cor-texto-escuro);
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .submit-button:hover {
-            background-color: #f0c24f;
-        }
 
-        /* Adicionado: Estilo para o botão flutuante de retorno */
-        .floating-back-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--cor-secundaria);
-            color: var(--cor-principal);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            text-decoration: none;
-            font-size: 24px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        
-        .floating-back-button:hover {
-            background-color: #f0c24f;
-            transform: scale(1.1);
-        }
-
-        /* Adicionado: Animação de entrada do botão */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .floating-back-button {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="style.css"> 
+    </head>
 <body>
-    <div class="container">
+    <div class="container form-container">
         <h1>Acessórios</h1>
-        <p>Preencha o formulário abaixo para reservar seus acessórios.</p>
+        <p>Preencha o formulário abaixo para reservar seus acessórios. Entraremos em contato em breve para combinar a entrega e o pagamento.</p>
 
         <form action="https://formspree.io/f/meolwevv" method="POST">
             <div class="form-group">
@@ -140,11 +35,11 @@
             </div>
 
             <div class="form-group">
-                <label for="contato">Número para contato:</label>
+                <label for="contato">Número para contato (WhatsApp):</label>
                 <input type="tel" id="contato" name="Número para contato" required>
             </div>
 
-            <button type="submit" class="submit-button">Enviar</button>
+            <button type="submit" class="submit-button">Enviar Reserva</button>
         </form>
     </div>
     <a href="escolha.html" class="floating-back-button">
@@ -152,4 +47,3 @@
     </a>
 </body>
 </html>
-
