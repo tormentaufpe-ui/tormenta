@@ -10,8 +10,9 @@ CSS UNIFICADO - ATLÉTICA TORMENTA
     box-sizing: border-box;
 }
 
-/* * CORREÇÃO CHAVE PARA ADAPTABILIDADE MOBILE
- * Garante que nenhum elemento force a rolagem horizontal
+/* * CORREÇÃO CHAVE PARA ADAPTABILIDADE MOBILE *
+ * Garante que nenhum elemento force a rolagem horizontal, 
+ * mas a correção estrutural é mais importante.
  */
 html, body {
     overflow-x: hidden; 
@@ -89,15 +90,20 @@ nav a:hover {
     margin-right: 20px;
     z-index: 100;
 }
+
+/* --- CORREÇÃO DE RESPONSIVIDADE EM MAIN --- */
+/* Remove padding lateral para telas maiores e o usa dentro das sections, 
+   o que ajuda a prevenir o estouro de largura no mobile */
 main {
-    padding-top: 100px;
     flex: 1;
     width: 100%;
     max-width: 1200px;
     margin: 20px auto;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 20px; /* Padding interno em vez de padding-left/right */
+    padding-top: 100px; /* Mantém o padding superior para o header fixo */
 }
+/* ------------------------------------------- */
+
 section {
     background-color: var(--cor-background-secao);
     padding: 30px;
@@ -562,7 +568,6 @@ form {
     transform: scale(1.02);
 }
 
-/* Estilo do botão de voltar flutuante (floating-back-button) já existe no CSS global, mantendo a consistência. */
 /* ======================================================
 --- MEDIA QUERIES (RESPONSIVIDADE) ---
 ======================================================
@@ -627,11 +632,30 @@ form {
     .hero h1 {
         font-size: 2.5em;
     }
+    
+    /* --- CORREÇÃO DE RESPONSIVIDADE EM MAIN/SECTION --- */
     main {
         padding-top: 90px;
-        padding-left: 0;
+        /* Zera o padding lateral para que 100% da largura seja o 100% do viewport */
+        padding-left: 0; 
         padding-right: 0;
+        margin: 20px auto;
+        min-width: 0; /* Correção para flex-item principal */
     }
+    section {
+        /* Adiciona margem lateral na SECTION, e não no MAIN, para dar respiro */
+        margin-left: 10px;
+        margin-right: 10px;
+        /* Ajusta o padding interno da SECTION */
+        padding: 20px;
+    }
+    .hero {
+        /* Garante que o hero se encaixe com o padding ajustado */
+        padding: 40px 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    /* ---------------------------------------------------- */
 
     /* CORREÇÃO 2: Garante que o rodapé não cause rolagem horizontal */
     footer {
