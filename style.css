@@ -11,9 +11,8 @@ CSS UNIFICADO - ATLÉTICA TORMENTA
 }
 
 /* * CORREÇÃO CHAVE PARA ADAPTABILIDADE MOBILE *
- * Garante que nenhum elemento force a rolagem horizontal, 
- * mas a correção estrutural é mais importante.
- */
+ * Garante que nenhum elemento force a rolagem horizontal.
+ * */
 html, body {
     overflow-x: hidden; 
     width: 100%;
@@ -92,24 +91,27 @@ nav a:hover {
 }
 
 /* --- CORREÇÃO DE RESPONSIVIDADE EM MAIN --- */
-/* Remove padding lateral para telas maiores e o usa dentro das sections, 
-   o que ajuda a prevenir o estouro de largura no mobile */
+/* Zera o padding lateral para telas grandes e o reintroduz na section */
 main {
     flex: 1;
     width: 100%;
     max-width: 1200px;
     margin: 20px auto;
-    padding: 20px; /* Padding interno em vez de padding-left/right */
+    padding: 20px 0; /* REMOVIDO PADDING LATERAL AQUI */
     padding-top: 100px; /* Mantém o padding superior para o header fixo */
+    min-width: 0;
 }
 /* ------------------------------------------- */
 
 section {
     background-color: var(--cor-background-secao);
-    padding: 30px;
+    /* Padding interno ajustado para evitar quebras */
+    padding: 30px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    margin-bottom: 30px;
+    margin: 0 auto 30px auto; /* Centraliza a seção e usa margem inferior */
+    max-width: 100%;
+    width: 98%; /* Adiciona um respiro de 2% (1% de cada lado) */
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 section:hover {
@@ -146,7 +148,8 @@ h3 { font-size: 1.8em; }
 }
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Ajuste para garantir que caiba em telas menores sem forçar 300px */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 30px;
 }
 .grid-item {
@@ -160,6 +163,7 @@ h3 { font-size: 1.8em; }
     align-items: center;
     border: 2px solid transparent;
     transition: border 0.3s ease;
+    min-width: 0;
 }
 .grid-item:hover {
     border: 2px solid var(--cor-secundaria);
@@ -175,12 +179,14 @@ h3 { font-size: 1.8em; }
     justify-content: center;
     gap: 10px;
     margin: 10px 0;
+    flex-wrap: wrap; /* Adicionado para evitar estouro de linha no mobile */
 }
 .color-box {
     width: 30px;
     height: 30px;
     border: 2px solid var(--cor-texto-claro);
     border-radius: 4px;
+    flex-shrink: 0;
 }
 .color-black { background-color: #000000; }
 .color-red-purple { background-color: #3a0e2a; }
@@ -274,6 +280,7 @@ h3 { font-size: 1.8em; }
     align-items: center;
     border: 1px solid transparent;
     text-align: center;
+    min-width: 0; /* Garante que o grid-item se adapte */
 }
 .membro-card:hover {
     transform: translateY(-5px);
@@ -364,30 +371,22 @@ footer p {
 ======================================================
 */
 
-/* Regras para centralizar a página de reservas. */
+/* CORREÇÃO CRÍTICA: Centralização não-absoluta para mobile */
 .container.reserva-intro-container {
-    /* Sobrescreve o estilo de "main" para centralizar este conteúdo na tela */
     max-width: 700px;
-    margin: auto; 
+    /* Removido position: absolute, top: 50%, left: 50% e transform */
+    margin: 100px auto 40px auto; /* Nova margem superior para o header fixo */
     padding-top: 40px; 
     padding-bottom: 40px; 
     
-    /* Centraliza o container na tela verticalmente e horizontalmente */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* Garante que o container apareça sobre o body, caso haja conteúdo antes dele */
-    z-index: 5;
-    
     border: 3px solid var(--cor-secundaria); 
     text-align: center;
-    /* Adiciona a animação de entrada */
-    animation: bounceIn 0.8s forwards; 
+    z-index: 5;
+    animation: bounceInNoTransform 0.8s forwards; /* Usa nova animação */
 }
 
 .container.reserva-intro-container h1 {
-    font-size: 3.5em; /* Aumentado para impacto */
+    font-size: 3.5em; 
     margin-bottom: 20px;
 }
 
@@ -402,7 +401,7 @@ footer p {
 /* Estilo do Botão Principal da Página de Transição */
 .botao-link.reservas-btn {
     display: inline-block;
-    padding: 18px 40px; /* Mais preenchimento para parecer importante */
+    padding: 18px 40px; 
     background-color: var(--cor-secundaria);
     color: var(--cor-principal);
     text-decoration: none;
@@ -425,15 +424,13 @@ footer p {
 ======================================================
 */
 .container.escolhas-container {
-    /* CENTRALIZAÇÃO CORRIGIDA: */
     width: 90%; 
     max-width: 800px;
-    margin: auto; /* Centraliza o bloco dentro do body flex */
+    margin: 100px auto 40px auto; /* Margem superior para o header fixo */
     padding: 40px;
     background-color: var(--cor-background-secao);
     z-index: 5;
     
-    /* BORDA AMARELA: */
     border: 3px solid var(--cor-secundaria); 
     
     animation: fadeIn 0.8s forwards; 
@@ -445,7 +442,6 @@ footer p {
 .container.escolhas-container p {
     font-size: 1.2em;
     margin-bottom: 40px;
-    /* CORREÇÃO: Alinha o texto de instrução ao centro */
     text-align: center; 
 }
 .botoes-container {
@@ -473,7 +469,6 @@ footer p {
 }
 /* ======================================================
 --- ESTILOS ESPECÍFICOS DA PÁGINA DE FORMULÁRIO (camisa-reserva.html) ---
---- Ajustado para a estrutura do formulário embutido do usuário ---
 ======================================================
 */
 /* Reutilizando estilos base do container de páginas de transição */
@@ -482,8 +477,8 @@ footer p {
     padding: 40px;
     border: 3px solid var(--cor-secundaria); 
     animation: fadeIn 0.8s forwards;
-    /* Adicionando margem top e bottom para que não fique colado no topo */
-    margin-top: 80px; 
+    /* Ajustado para não colidir com o header fixo */
+    margin-top: 100px; 
     margin-bottom: 80px;
 }
 
@@ -521,9 +516,9 @@ form {
 .form-group input, 
 .form-group select {
     padding: 12px 15px;
-    border: 2px solid var(--cor-background-secao); /* Borda discreta */
+    border: 2px solid var(--cor-background-secao); 
     border-radius: 5px;
-    background-color: var(--cor-principal); /* Cor de fundo escura */
+    background-color: var(--cor-principal); 
     color: var(--cor-texto-claro);
     font-size: 1em;
     transition: border-color 0.3s ease;
@@ -550,7 +545,7 @@ form {
 .submit-button {
     padding: 15px;
     background-color: var(--cor-secundaria);
-    color: var(--cor-principal); /* Cor principal é o roxo escuro */
+    color: var(--cor-principal); 
     border: none;
     border-radius: 5px;
     font-size: 1.2em;
@@ -593,7 +588,6 @@ form {
 
 /* REGRAS DE MOBILE PARA O MENU HAMBURGUER (CORRIGIDAS) */
 @media (max-width: 768px) {
-    /* CORREÇÃO 1: Garante que o menu ocupe toda a largura sem margens laterais */
     nav {
         margin: 0; 
         padding: 0; 
@@ -640,14 +634,15 @@ form {
         padding-left: 0; 
         padding-right: 0;
         margin: 20px auto;
-        min-width: 0; /* Correção para flex-item principal */
+        min-width: 0;
     }
     section {
         /* Adiciona margem lateral na SECTION, e não no MAIN, para dar respiro */
         margin-left: 10px;
         margin-right: 10px;
         /* Ajusta o padding interno da SECTION */
-        padding: 20px;
+        padding: 20px 15px; /* Reduz padding horizontal */
+        width: auto; /* Deixa a largura ser controlada pelas margens */
     }
     .hero {
         /* Garante que o hero se encaixe com o padding ajustado */
@@ -666,30 +661,32 @@ form {
     /* Ajustes para a página de Diretoria no Mobile */
     .container {
         padding: 15px;
-        margin: 20px auto;
+        margin: 20px 10px; /* Adiciona margem lateral na diretoria */
     }
     .diretoria-grupo {
         grid-template-columns: 1fr; /* Força coluna única para melhor leitura */
         gap: 15px;
+        padding: 0; /* Remove padding lateral que pode ter causado estouro */
     }
     .coordenadoria-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 colunas para as coordenadorias */
     }
     
     /* Ajustes específicos para a página de RESERVAS no Mobile */
+    /* CORREÇÃO 3: Removido o posicionamento absoluto no mobile para permitir rolagem */
     .container.reserva-intro-container {
         padding: 20px; 
         width: 95%; 
-    }
-    .container.reserva-intro-container h1 {
-        font-size: 2.5em; 
+        position: static; /* Volta a ser um elemento de fluxo normal */
+        transform: none; /* Remove a transformação */
+        margin: 100px auto 40px auto; /* Mantém a margem para o header fixo */
     }
     
     /* Ajustes específicos para a página de ESCOLHAS no Mobile */
     .container.escolhas-container {
         padding: 20px;
         width: 95%;
-        margin-top: 0; 
+        margin-top: 100px; 
     }
 }
 
@@ -697,12 +694,23 @@ form {
 --- ANIMAÇÕES ---
 ======================================================
 */
+
+/* ANIMAÇÃO CORRIGIDA: Removida a parte de transformação de -50% para elementos não-absolutos */
+@keyframes bounceInNoTransform {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+
+/* Animação original para elementos que PRECISAM de centralização absoluta */
 @keyframes bounceIn {
     0% { transform: scale(0.3) translate(-50%, -50%); opacity: 0; }
     50% { transform: scale(1.1) translate(-50%, -50%); opacity: 1; }
     70% { transform: scale(0.9) translate(-50%, -50%); }
     100% { transform: scale(1) translate(-50%, -50%); }
 }
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
