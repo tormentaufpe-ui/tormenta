@@ -18,7 +18,7 @@
         <h1>Camisas</h1>
         <p>Preencha o formulário abaixo para reservar sua camisa da Atlética. Entraremos em contato em breve para combinar a entrega e o pagamento.</p>
 
-        <form action="https://formspree.io/f/mwpnjvbp" method="POST">
+        <form action="https://script.google.com/macros/s/AKfycbxntUFYpQGccwf4lqbUQGGMipdmCpioLzssxHqj6GSjcVSm1jM4NbBpRccwR7iOHzarIA/exec" method="POST">
             <div class="form-group">
                 <label for="nome">Nome Completo:</label>
                 <input type="text" id="nome" name="Nome Completo" required>
@@ -73,6 +73,44 @@
         <i class="fas fa-arrow-left"></i>
     </a>
 </body>
+<a href="escolha.html" class="floating-back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 
+    <script>
+        // 1. Função de Alternância do Menu Hamburguer (Mobile)
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            // Adiciona ou remove a classe 'open', que controla a visibilidade do menu no CSS Mobile
+            nav.classList.toggle('open');
+        }
+
+        // 2. Lógica para Esconder o Menu ao Rolar a Página (Desktop/Scroll)
+        
+        let prevScrollpos = window.pageYOffset;
+        const navBar = document.querySelector('header');
+        const navHeight = navBar.offsetHeight;
+
+        window.onscroll = function() {
+            let currentScrollPos = window.pageYOffset;
+            
+            // Se a tela for maior que 768px (Desktop), aplica o efeito de esconder/mostrar
+            if (window.innerWidth > 768) {
+                if (prevScrollpos > currentScrollPos) {
+                    // ROLANDO PARA CIMA: Mostra o header
+                    navBar.style.top = "0";
+                } else {
+                    // ROLANDO PARA BAIXO: Esconde o header
+                    navBar.style.top = `-${navHeight}px`;
+                }
+            } else {
+                // Em telas menores, garante que o header fique fixo no topo (0)
+                navBar.style.top = "0";
+            }
+
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
+    </body>
 </html>
 
