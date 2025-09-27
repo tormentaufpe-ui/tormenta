@@ -17,11 +17,10 @@
             --cor-secundaria: #d4af37;
             --cor-texto-claro: #f8f8f8;
             --cor-texto-escuro: #1a1a1a;
-            --cor-background-secao: #4a1336; /* Adicionada variável para clareza */
+            --cor-background-secao: #4a1336; 
         }
         
-        /* * NOVO: Garante o Box Model correto para layouts de grade */
-        * {
+        {
             box-sizing: border-box; 
         }
 
@@ -38,10 +37,10 @@
         }
         .container {
             width: 90%;
-            max-width: 1000px; /* Aumentado o max-width para acomodar a grade */
+            max-width: 1000px;
             margin: 40px auto;
             padding: 30px;
-            background-color: var(--cor-background-secao); /* Usando variável */
+            background-color: var(--cor-background-secao); 
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
@@ -63,7 +62,7 @@
             margin-bottom: 30px;
         }
         h3 {
-            font-size: 1.6em; /* Ajustado para melhor hierarquia */
+            font-size: 1.6em; 
             margin-bottom: 5px;
         }
         p {
@@ -71,7 +70,7 @@
             line-height: 1.6;
             text-align: center;
             margin-top: 0;
-            margin-bottom: 10px; /* Reduzido o margin-bottom para a grade */
+            margin-bottom: 10px; 
         }
         .description {
             font-size: 0.9em;
@@ -87,14 +86,14 @@
             margin-bottom: 5px;
         }
 
-        /* --- ESTILOS DE GRADE DA DIRETORIA (GRID) --- */
+      
         .diretoria-grupo {
             display: grid;
-            /* Layout: 3 colunas de largura igual no desktop */
+           
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin-bottom: 50px;
-            padding: 0 10px; /* Pequeno padding para alinhar */
+            padding: 0 10px;
         }
         
         .membro-card {
@@ -124,14 +123,14 @@
             margin-top: 5px;
         }
         
-        /* Ajuste para o grupo de Coordenadoria (mais simples) */
+       
         .coordenadoria-grid {
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
         }
 
 
-        /* Estilo para o botão flutuante de retorno */
+        
         .floating-back-button {
             position: fixed;
             bottom: 20px;
@@ -156,7 +155,7 @@
             transform: scale(1.1);
         }
 
-        /* Animação de entrada do botão */
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -166,7 +165,7 @@
             animation: fadeIn 0.5s ease-in-out;
         }
         
-        /* MEDIA QUERY para Mobile */
+  
         @media (max-width: 600px) {
              .container {
                 padding: 15px;
@@ -180,11 +179,11 @@
                 margin-top: 30px;
             }
             .diretoria-grupo {
-                grid-template-columns: 1fr; /* Força coluna única para melhor leitura */
+                grid-template-columns: 1fr; 
                 gap: 15px;
             }
             .coordenadoria-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 colunas para as coordenadorias */
+                grid-template-columns: repeat(2, 1fr); 
             }
         }
         
@@ -286,4 +285,5 @@
         <i class="fas fa-arrow-left"></i>
     </a>
 </body>
+
 </html>
