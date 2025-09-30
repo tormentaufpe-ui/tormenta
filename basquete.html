@@ -14,11 +14,10 @@
     <link rel="stylesheet" href="style.css"> 
     
     <style>
-        /* CSS Específico da Página (Pode ser transferido para style.css se quiser) */
         .modalidade-header {
             text-align: center;
             padding: 60px 20px;
-            background: linear-gradient(rgba(58, 14, 42, 0.9), rgba(58, 14, 42, 0.7)), url('img/basquete-fundo.png') no-repeat center center/cover; /* Mude 'basquete-fundo.png' para uma imagem real */
+            background: linear-gradient(rgba(58, 14, 42, 0.9), rgba(58, 14, 42, 0.7)), url('img/basquete-fundo.png') no-repeat center center/cover; 
             color: var(--cor-texto-claro);
             border-radius: 8px;
             margin-bottom: 30px;
@@ -61,16 +60,16 @@
         .info-card ul {
             list-style: none;
             padding: 0;
-            text-align: left; /* Alinhamento da lista para melhor leitura */
+            text-align: left; 
             margin-bottom: 20px;
         }
-        /* NOVO ESTILO: Contêiner de rolagem para o elenco */
+       
         .elenco-scroll {
-            max-height: 250px; /* Altura máxima antes de começar a rolar */
-            overflow-y: auto; /* Adiciona a barra de rolagem vertical quando necessário */
-            padding-right: 10px; /* Espaço para a barra de rolagem não colidir com o texto */
+            max-height: 250px;
+            overflow-y: auto; 
+            padding-right: 10px; 
         }
-        /* Personalização da barra de rolagem (webkit - Chrome/Safari) */
+       
         .elenco-scroll::-webkit-scrollbar {
             width: 8px;
         }
@@ -88,11 +87,10 @@
             padding: 8px;
             border-radius: 4px;
             font-size: 1em;
-            display: flex; /* Para centralizar o texto dentro do li */
+            display: flex;
             justify-content: space-between;
         }
         .info-card li strong {
-             /* Estiliza o nome do jogador */
              color: var(--cor-secundaria);
         }
         
@@ -119,7 +117,6 @@
             background-color: #f0c24f;
             transform: scale(1.05);
         }
-        /* --- CSS para o Botão de Retorno --- */
         .floating-back-button {
             position: fixed;
             top: 20px;
@@ -136,13 +133,12 @@
             font-size: 1.5em;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             transition: background-color 0.3s, transform 0.2s;
-            text-decoration: none; /* Remove sublinhado */
+            text-decoration: none;
         }
         .floating-back-button:hover {
             background-color: #f0c24f;
             transform: scale(1.1);
         }
-        /* Ajuste para não colidir com o topo da página no mobile */
         @media (max-width: 768px) {
             .floating-back-button {
                 top: 15px;
@@ -237,4 +233,5 @@
         <p class="copyright">&copy; 2025 Atlética Tormenta. Todos os direitos reservados.</p>
     </footer>
 </body>
+
 </html>
