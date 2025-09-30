@@ -5,305 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atlética Tormenta - Forjando a Imortalidade</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <style>
-        :root {
-            --cor-principal: #3a0e2a;
-            --cor-secundaria: #d4af37;
-            --cor-texto-claro: #f8f8f8;
-            --cor-texto-escuro: #1a1a1a;
-            --cor-background-secao: #4a1336;
-        }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--cor-principal);
-            color: var(--cor-texto-claro);
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-            font-size: 1.1em;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background-color: var(--cor-background-secao);
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            position: relative; 
-        }
-        .logo img {
-            height: 70px;
-            margin-left: 20px;
-        }
-        nav {
-            margin-right: 20px;
-        }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-        }
-        nav a {
-            color: var(--cor-secundaria);
-            text-decoration: none;
-            font-weight: bold;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1em;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-        }
-        nav a:hover {
-            background-color: var(--cor-secundaria);
-            color: var(--cor-principal);
-            transform: scale(1.05); 
-        }
-        .menu-icon {
-            display: none;
-            font-size: 28px;
-            color: var(--cor-secundaria);
-            cursor: pointer;
-            margin-right: 20px;
-            z-index: 100;
-        }
-        main {
-            flex: 1;
-            width: 100%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-        section {
-            background-color: var(--cor-background-secao);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            margin-bottom: 30px;
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-        section:hover {
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
-            transform: translateY(-5px);
-        }
-        h1, h2, h3 {
-            font-family: 'Oswald', sans-serif;
-            color: var(--cor-secundaria);
-            text-align: center;
-            margin-bottom: 20px;
-            letter-spacing: 4px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        }
-        h1 { font-size: 2.8em; }
-        h2 { font-size: 2.2em; }
-        h3 { font-size: 1.8em; }
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            background: linear-gradient(to top, var(--cor-principal) 0%, rgba(58, 14, 42, 0.5) 100%), url('img/tormenta-fundo.png') no-repeat center center/cover;
-        }
-        .hero h1 {
-            color: var(--cor-secundaria);
-            font-size: 3.5em;
-            margin-bottom: 10px;
-        }
-        .hero p {
-            font-size: 1.3em;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .grid-item {
-            background-color: #4a1336;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 2px solid transparent;
-            transition: border 0.3s ease;
-        }
-        .grid-item:hover {
-            border: 2px solid var(--cor-secundaria);
-        }
-        .grid-item h3 {
-            color: var(--cor-secundaria);
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .color-palette {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin: 10px 0;
-        }
-        .color-box {
-            width: 30px;
-            height: 30px;
-            border: 2px solid var(--cor-texto-claro);
-            border-radius: 4px;
-        }
-        .color-black { background-color: #000000; }
-        .color-red-purple { background-color: #3a0e2a; }
-        .color-yellow-ochre { background-color: #d4af37; }
-        .mascote-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .mascote-content img {
-            max-width: 200px;
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        .mascote-content p {
-            margin-top: 0;
-            max-width: 400px;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .gallery-item {
-            background-color: var(--cor-principal);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-        .gallery-item p {
-            padding: 15px;
-            margin: 0;
-            font-weight: bold;
-            color: var(--cor-secundaria);
-            background-color: #4a1336;
-        }
-        
-        footer {
-            background-color: var(--cor-background-secao);
-            color: var(--cor-texto-claro);
-            padding: 30px 20px;
-            margin-top: auto;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-            border-top: 5px solid var(--cor-secundaria);
-            
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px; 
-        }
-        footer h3 {
-            margin-bottom: 0;
-        }
-        footer p {
-            text-align: center;
-            margin: 0;
-        }
-        .social-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-        .social-links a {
-            color: var(--cor-secundaria);
-            font-size: 30px;
-            transition: color 0.3s, transform 0.3s ease;
-        }
-        .social-links a:hover {
-            color: #f0c24f;
-            transform: rotate(360deg) scale(1.2);
-        }
-        .copyright {
-            margin-top: 10px;
-            font-size: 0.9em;
-        }
-
-        @media (min-width: 768px) {
-            .mascote-content {
-                flex-direction: row;
-                text-align: left;
-                justify-content: center;
-                gap: 30px;
-            }
-            .mascote-content img {
-                margin-bottom: 0;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-                position: absolute;
-                top: 100px;
-                right: 0;
-                width: 100%;
-                background-color: var(--cor-background-secao);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-                z-index: 50;
-            }
-            nav.open {
-                display: block;
-            }
-            nav ul {
-                flex-direction: column;
-                gap: 5px;
-                text-align: center;
-                padding: 10px 0;
-            }
-            nav a {
-                display: block;
-                padding: 15px;
-            }
-            .menu-icon {
-                display: block;
-            }
-            .logo img {
-                height: 60px;
-            }
-            .hero h1 {
-                font-size: 2.5em;
-            }
-        }
-        
-        @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.1); opacity: 1; }
-            70% { transform: scale(0.9); }
-            100% { transform: scale(1); }
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="style.css"> 
+    </head>
 <body>
     <header>
         <div class="logo">
@@ -317,7 +26,7 @@
             <ul>
                 <li><a href="estatuto.html">Estatuto</a></li>
                 <li><a href="diretoria.html">Diretoria</a></li>
-                <li><a href="reservas.html">Reservar</a></li>
+                <li><a href="reservas.html">Loja</a></li>
             </ul>
         </nav>
     </header>
@@ -327,13 +36,13 @@
             <h1>Atlética Tormenta</h1>
         </section>
 
-        <section>
+        <section id="historia">
             <h2>História</h2>
             <p>A Atlética Tormenta nasceu da união de seis poderosas atléticas - Soberana, Thenebrosa, Reativa, Zangada, Invocados e Radioativa - oriundas do Centro de Tecnologia e Geociências (CTG), Departamento de Energia Nuclear (DEN) e do Departamento de Engenharia Química (DEQ), da Universidade Federal de Pernambuco (UFPE).</p>
             <p>Nosso propósito é fortalecer o esporte universitário, integrar a comunidade acadêmica e representar com excelência nossos cursos e a instituição, forjando um legado de união e vitórias.</p>
         </section>
 
-        <section>
+        <section id="identidade">
             <h2>Identidade</h2>
             <div class="grid-container">
                 <div class="grid-item">
@@ -355,36 +64,92 @@
                 <div class="grid-item">
                     <h3>Mascote: Hefesto</h3>
                     <div class="mascote-content">
-                        <img src="hefesto.png" alt="Mascote Hefesto - Atlética Tormenta"> 
+                        <img src="image_dbed3a.png" alt="Mascote Hefesto - Atlética Tormenta"> 
                         <p>Hefesto, o deus grego da forja, é nosso poderoso mascote. Ele simboliza o trabalho árduo, a criação, a resiliência e a habilidade de transformar o bruto em algo valioso. Assim como Hefesto forja ferramentas e obras de arte, a Atlética Tormenta forja atletas e a união inquebrável de sua comunidade, construindo um futuro imortal.</p>
                     </div>
                 </div>
             </div>
         </section>
+        
+      <section id="modalidades">
+    <h2>Modalidades:</h2>
+    <p class="section-subtitle">Onde o rugido da Tormenta se manifesta com raça.</p>
+    
+    <div class="modalidades-grid">
+        
+        <div class="modalidade-card">
+            <i class="fas fa-basketball-ball modalidade-icon"></i>
+            <h3>Basquete</h3>
+            <p>Representamos a Atlética com garra nas quadras. Venha treinar e fazer parte do nosso time de Basquete, tanto no feminino quanto no masculino!</p>
+            <a href="basquete.html" class="modalidade-link">Saiba mais</a>
+        </div>
+
+        <div class="modalidade-card">
+            <i class="fas fa-futbol modalidade-icon"></i>
+            <h3>Futsal</h3>
+            <p>Velocidade e tática no salão. O Futsal é uma das modalidades mais tradicionais e vibrantes da Tormenta.</p>
+            <a href="futsal.html" class="modalidade-link">Saiba mais</a> </div>
+
+        <div class="modalidade-card">
+            <i class="fas fa-volleyball-ball modalidade-icon"></i>
+            <h3>Vôlei</h3>
+            <p>Bloqueios firmes e ataques fulminantes. Nossos times de Vôlei competem nos principais jogos universitários.</p>
+            <a href="volei.html" class="modalidade-link">Saiba mais</a> </div>
+        
+        <div class="modalidade-card">
+            <i class="fas fa-hand-paper modalidade-icon"></i>
+            <h3>Handebol</h3>
+            <p>Uma modalidade de contato e muita energia, onde a força da Tormenta é colocada à prova.</p>
+            <a href="handebol.html" class="modalidade-link">Saiba mais</a> </div>
+        
+    </div>
+
+    <div class="modalidades-grid">
+        <div class="modalidade-card">
+            <i class="fas fa-running modalidade-icon"></i>
+            <h3>Atletismo</h3>
+            <p>Nossos atletas de Atletismo combinam velocidade e resistência em uma jornada de superação a cada prova na pista.</p>
+            <a href="atletismo.html" class="modalidade-link">Saiba mais</a> </div>
+
+        <div class="modalidade-card">
+            <i class="fas fa-gamepad modalidade-icon"></i>
+            <h3>E-Sports</h3>
+            <p>Onde a competição é virtual, a vitória é real. A Tormenta domina os servidores e tem equipes de eSports prontas para a glória.</p>
+            <a href="esports.html" class="modalidade-link">Saiba mais</a> </div>
+        
+    </div>
+</section>
+        
     </main>
 
     <footer>
-    <h3>Faça parte da Tormenta</h3>
-    <p>Siga-nos nas redes sociais e fique por dentro de todas as novidades, eventos e conquistas!</p>
-    
-    <div class="social-links" aria-label="Navegação em redes sociais">
-        <a href="https://www.instagram.com/tormentaufpe" target="_blank" aria-label="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://chat.whatsapp.com/LlD8CotzczgAeFqXqhBVkF" target="_blank" aria-label="WhatsApp">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
-    </div>
-    
-    <p class="copyright">&copy; 2025 Atlética Tormenta. Todos os direitos reservados.</p>
-</footer>
+        <h3>Faça parte da Tormenta</h3>
+        <p>Siga-nos nas redes sociais e fique por dentro de todas as novidades, eventos e conquistas!</p>
+        
+        <div class="footer-links-container">
+            <div class="logo-footer">
+                <img src="logo_tormenta2.png" alt="Logo Tormenta" style="height: 50px; margin-bottom: 10px;">
+            </div>
+        </div>
+
+        <div class="social-links" aria-label="Navegação em redes sociais">
+            <a href="https://www.instagram.com/tormentaufpe" target="_blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://chat.whatsapp.com/LlD8CotzczgAeFqXqhBVkF" target="_blank" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+        
+        <p class="copyright">&copy; 2025 Atlética Tormenta. Todos os direitos reservados.</p>
+    </footer>
 
     <script>
         function toggleMenu() {
             const nav = document.querySelector('nav');
+            // Adiciona ou remove a classe 'open', que é controlada pelo CSS no mobile
             nav.classList.toggle('open');
         }
     </script>
 </body>
-
 </html>

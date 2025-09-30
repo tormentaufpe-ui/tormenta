@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Sports - Atlética Tormenta</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    
+    <style>
+        .modalidade-header {
+            text-align: center;
+            padding: 60px 20px;
+            /* Mude 'esports-fundo.png' para uma imagem real se tiver */
+            background: linear-gradient(rgba(58, 14, 42, 0.9), rgba(58, 14, 42, 0.7)), url('img/esports-fundo.png') no-repeat center center/cover; 
+            color: var(--cor-texto-claro);
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .modalidade-header h1 {
+            color: var(--cor-secundaria);
+            font-size: 3.2em;
+        }
+        .modalidade-header p {
+            font-size: 1.2em;
+        }
+        .info-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .info-card {
+            background-color: var(--cor-principal);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border-top: 4px solid var(--cor-secundaria);
+        }
+        .info-card h3 {
+            margin-top: 0;
+            color: var(--cor-secundaria);
+            font-size: 1.6em;
+            letter-spacing: 2px;
+        }
+        .info-card h4 {
+            color: var(--cor-secundaria);
+            margin-bottom: 5px;
+            font-size: 1.2em;
+            text-align: left;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 5px;
+        }
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        /* ESTILO PARA O SCROLL */
+        .elenco-scroll {
+            max-height: 250px; 
+            overflow-y: auto; 
+            padding-right: 10px; 
+        }
+        .elenco-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .elenco-scroll::-webkit-scrollbar-thumb {
+            background-color: var(--cor-secundaria);
+            border-radius: 10px;
+        }
+        .elenco-scroll::-webkit-scrollbar-track {
+            background-color: #4a1336;
+        }
+        
+        .info-card li {
+            background-color: #4a1336;
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 1em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .info-card li strong {
+             color: var(--cor-secundaria);
+        }
+        
+        .call-to-action {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #4a1336;
+            border-radius: 8px;
+        }
+        .call-to-action a {
+            display: inline-block;
+            background-color: var(--cor-secundaria);
+            color: var(--cor-principal);
+            padding: 12px 25px;
+            margin-top: 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .call-to-action a:hover {
+            background-color: #f0c24f;
+            transform: scale(1.05);
+        }
+        /* CSS para o Botão de Retorno */
+        .floating-back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--cor-secundaria);
+            color: var(--cor-principal);
+            border-radius: 50%;
+            font-size: 1.5em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s, transform 0.2s;
+            text-decoration: none;
+        }
+        .floating-back-button:hover {
+            background-color: #f0c24f;
+            transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            .floating-back-button {
+                top: 15px;
+                left: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <a href="index.html#modalidades" class="floating-back-button" aria-label="Voltar para a página inicial">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    
+    <main style="padding-top: 80px;">
+        <section class="modalidade-header">
+            <h1>E-Sports</h1>
+            <p>Dominando os servidores virtuais. Coordenação e estratégia nos levam à vitória nos servidores.</p>
+        </section>
+
+        <section>
+            <h2>Seleção CTG, DEQ e DEN:</h2>
+            <p>Competimos nos principais jogos estratégicos (MOBA, FPS, Battle Royale), representando o CTG com garra e habilidade.</p>
+
+            <div class="info-card-grid">
+                
+               <div class="info-card">
+                    <h3>Histórico de conquistas</h3> 
+                    <ul>
+                        <li> </li>
+                        <li> </li>
+                        <li> </li>
+                    </ul>
+                </div>
+
+
+             <div class="info-card">
+    <h3>Membros-atletas (2025)</h3>
+    
+    <div class="elenco-scroll">
+        
+        <h4><i class="fas fa-gamepad"></i> League of Legends</h4>
+        <h5 style="color: var(--cor-texto-claro); margin: 10px 0 5px 0;">MASCULINO</h5>
+        <ul>
+            <li><strong> </strong><span>(Mid-Laner)</span></li>
+            <li><strong> </strong><span>(Top-Laner)</span></li>
+            <li><strong> </strong><span>(Jungler)</span></li>
+            <li><strong> </strong><span>(Suporte)</span></li>
+            <li><strong> </strong><span>(AD Carry)</span></li>
+        </ul>
+        
+        <h5 style="color: var(--cor-texto-claro); margin: 10px 0 5px 0;">FEMININO</h5>
+        <ul>
+            <li><strong> </strong><span>(Mid-Laner)</span></li>
+            <li><strong> </strong><span>(Suporte)</span></li>
+            <li><strong> </strong><span>(Top-Laner)</span></li>
+            <li><strong> </strong><span>(AD Carry)</span></li>
+        </ul>
+
+        <h4><i class="fas fa-crosshairs"></i> Valorant</h4>
+        <h5 style="color: var(--cor-texto-claro); margin: 10px 0 5px 0;">MASCULINO</h5>
+        <ul>
+            <li><strong> </strong><span>(IGL/Controlador)</span></li>
+            <li><strong> </strong><span>(Rifle/Iniciador)</span></li>
+            <li><strong> </strong><span>(Duelista)</span></li>
+            <li><strong> </strong><span>(Sentinela)</span></li>
+            <li><strong> </strong><span>(Iniciador)</span></li>
+        </ul>
+        
+        <h5 style="color: var(--cor-texto-claro); margin: 10px 0 5px 0;">FEMININO</h5>
+        <ul>
+            <li><strong> </strong><span>(Estrategista/Controlador)</span></li>
+            <li><strong> </strong><span>(Duelista)</span></li>
+            <li><strong> </strong><span>(Sentinela)</span></li>
+            <li><strong> </strong><span>(Iniciadora)</span></li>
+        </ul>
+
+        <h4><i class="fas fa-futbol"></i> EA FC (Futebol Virtual)</h4>
+        <h5 style="color: var(--cor-texto-claro); margin: 10px 0 5px 0;">MASCULINO</h5>
+        <ul>
+            <li><strong> </strong><span>(Player 1x1)</span></li>
+        </ul>
+        <h5 style="color: var(--cor-texto-claro); margin: 10px 0 5px 0;">FEMININO</h5>
+        <ul>
+            <li><strong> </strong><span>(Player 1x1)</span></li>
+        </ul>
+        
+        <h4><i class="fas fa-star"></i> Brawl Stars</h4>
+        <h5 style="color: var(--cor-texto-claro); margin: 10px 0 5px 0;">MASCULINO</h5>
+        <ul>
+            <li><strong> </strong><span>(Lutador/Tanque)</span></li>
+            <li><strong> </strong><span>(Atirador/Controle)</span></li>
+        </ul>
+        <h5 style="color: var(--cor-texto-claro); margin: 10px 0 5px 0;">FEMININO</h5>
+        <ul>
+            <li><strong> </strong><span>(DPS/Atacante)</span></li>
+        </ul>
+    </div>
+</div>
+            </div>
+            
+        </section>
+    </main>
+    <footer>
+        <h3>Faça parte da Tormenta</h3>
+        <p>Siga-nos nas redes sociais e fique por dentro de todas as novidades, eventos e conquistas!</p>
+        
+        <div class="footer-links-container">
+            <div class="logo-footer">
+                <img src="logo_tormenta2.png" alt="Logo Tormenta" style="height: 50px; margin-bottom: 10px;">
+            </div>
+        </div>
+
+        <div class="social-links" aria-label="Navegação em redes sociais">
+            <a href="https://www.instagram.com/tormentaufpe" target="_blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://chat.whatsapp.com/LlD8CotzczgAeFqXqhBVkF" target="_blank" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+        
+        <p class="copyright">&copy; 2025 Atlética Tormenta. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

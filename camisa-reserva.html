@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="style.css"> 
-    </head>
+</head>
 <body>
     <div class="container form-container">
         <h1>Camisas</h1>
-        <p>Preencha o formulário abaixo para reservar sua camisa da Atlética. Entraremos em contato em breve para combinar a entrega e o pagamento.</p>
+        <p>Preencha o formulário abaixo para comprar sua camisa da Atlética. Entraremos em contato em breve para combinar a entrega.</p>
 
-        <form action="https://script.google.com/macros/s/AKfycbxntUFYpQGccwf4lqbUQGGMipdmCpioLzssxHqj6GSjcVSm1jM4NbBpRccwR7iOHzarIA/exec" method="POST">
+        <form id="formCamisas" method="POST" enctype="multipart/form-data">
+                
             <div class="form-group">
                 <label for="nome">Nome Completo:</label>
                 <input type="text" id="nome" name="Nome Completo" required>
@@ -32,22 +33,22 @@
                     <option value="Torcedor">Torcedor</option>
                 </select>
             </div>
-              <div class="form-group">
-    <label for="camisa_cor">Cor da Camisa:</label>
-    <select id="camisa_cor" name="Cor da Camisa" required>
-        <option value="">Selecione...</option>
-        <option value="Preta">Preta</option> 
-        <option value="Amarela">Amarela</option>
-    </select>
-</div>
+            <div class="form-group">
+                <label for="camisa_cor">Cor da Camisa:</label>
+                <select id="camisa_cor" name="Cor da Camisa" required>
+                    <option value="">Selecione...</option>
+                    <option value="Preta">Preta</option> 
+                    <option value="Amarela">Amarela</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label for="nome_camisa">Nome na camisa:</label>
-                <input type="text" id="nome_camisa" name="Nome na camisa">
+                <input type="text" id="nome_camisa" name="Nome na camisa" placeholder="Exemplo: Zé">
             </div>
 
             <div class="form-group">
                 <label for="numero_camisa">Número da camisa:</label>
-                <input type="number" id="numero_camisa" name="Número da camisa" min="0">
+                <input type="number" id="numero_camisa" name="Número da camisa" min="0" placeholder="Exemplo: 15">
             </div>
 
             <div class="form-group">
@@ -63,55 +64,154 @@
             
             <div class="form-group">
                 <label for="contato">Número para contato (WhatsApp):</label>
-                <input type="tel" id="contato" name="Número para contato" required>
+                <input type="tel" id="contato" name="Número para contato" required placeholder="(XX) 9XXXX-XXXX">
             </div>
 
-            <button type="submit" class="submit-button">Enviar</button>
+            <div class="form-group"> 
+                <label>Pagamento PIX:</label>
+                <div style="border: 1px solid #7a7a7a; padding: 10px; background-color: #383838; border-radius: 5px; margin-top: 5px;">
+                    <p style="font-size: 1.1em; font-weight: bold; color: yellow; margin-top: 0; margin-bottom: 5px;">
+                        Chave PIX:
+                    </p>
+                    <input type="text" id="pixKeyInput" value="81989766789" readonly 
+                            style="width: 100%; padding: 8px; background: #2a2a2a; color: white; border: none; cursor: pointer; font-size: 1em; box-sizing: border-box; text-align: center;"
+                            aria-label="Chave PIX para cópia">
+                    <small id="pixCopyStatus" style="color: #ccc; display: block; margin-top: 5px; text-align: center;">
+                        * Clique na chave PIX acima para copiar.
+                    </small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comprovante">Comprovante de Pagamento (PNG ou PDF - máx 5MB):</label>
+                <input type="file" id="comprovante" name="Comprovante" accept=".png,.pdf,.jpg,.jpeg" required>
+            </div>
+
+            <button type="submit" id="submitButton" class="submit-button">Enviar</button>
         </form>
+        
+        <p id="statusMessage" style="margin-top: 20px; font-weight: bold;"></p>
     </div>
-    <a href="escolha.html" class="floating-back-button">
-        <i class="fas fa-arrow-left"></i>
-    </a>
-</body>
-<a href="escolha.html" class="floating-back-button">
+    
+    <a href="escolha.html" class="floating-back-button" aria-label="Voltar à tela de escolha">
         <i class="fas fa-arrow-left"></i>
     </a>
 
     <script>
-        // 1. Função de Alternância do Menu Hamburguer (Mobile)
-        function toggleMenu() {
-            const nav = document.querySelector('nav');
-            // Adiciona ou remove a classe 'open', que controla a visibilidade do menu no CSS Mobile
-            nav.classList.toggle('open');
-        }
+        // URL do Google Apps Script
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyS8IEUWvGwtLcxvyrfX3o_HnI6Knt-0ZXvEwq9TMCroou4CNyc_8R3YhsVcu9VT5V65A/exec";
+        const MAX_FILE_SIZE_MB = 5;
 
-        // 2. Lógica para Esconder o Menu ao Rolar a Página (Desktop/Scroll)
-        
-        let prevScrollpos = window.pageYOffset;
-        const navBar = document.querySelector('header');
-        const navHeight = navBar.offsetHeight;
-
-        window.onscroll = function() {
-            let currentScrollPos = window.pageYOffset;
+        document.addEventListener('DOMContentLoaded', () => {
+            // Referências aos elementos
+            const form = document.getElementById('formCamisas');
+            const submitButton = document.getElementById('submitButton');
+            const statusMessage = document.getElementById('statusMessage');
+            const comprovanteInput = document.getElementById('comprovante');
+            const pixKeyInput = document.getElementById('pixKeyInput');
+            const pixCopyStatus = document.getElementById('pixCopyStatus');
             
-            // Se a tela for maior que 768px (Desktop), aplica o efeito de esconder/mostrar
-            if (window.innerWidth > 768) {
-                if (prevScrollpos > currentScrollPos) {
-                    // ROLANDO PARA CIMA: Mostra o header
-                    navBar.style.top = "0";
-                } else {
-                    // ROLANDO PARA BAIXO: Esconde o header
-                    navBar.style.top = `-${navHeight}px`;
-                }
-            } else {
-                // Em telas menores, garante que o header fique fixo no topo (0)
-                navBar.style.top = "0";
+            // Referência ao cabeçalho (para lógica de scroll)
+            const navBar = document.querySelector('header');
+            const navHeight = navBar ? navBar.offsetHeight : 0;
+            
+            // Variável para rastrear a posição do scroll
+            let prevScrollpos = window.pageYOffset;
+
+            // --- FUNÇÕES DE FEEDBACK ---
+            function setStatus(message, isError = false) {
+                statusMessage.textContent = message;
+                statusMessage.style.color = isError ? 'red' : 'green';
             }
+            
+            // --- LÓGICA DE COPIAR PIX ---
+            pixKeyInput.addEventListener('click', () => {
+                navigator.clipboard.writeText(pixKeyInput.value)
+                    .then(() => {
+                        // Feedback de sucesso
+                        const originalText = pixCopyStatus.textContent;
+                        pixCopyStatus.textContent = "✅ Chave PIX copiada!";
+                        setTimeout(() => {
+                            pixCopyStatus.textContent = originalText;
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Erro ao copiar texto: ', err);
+                        alert('Não foi possível copiar a chave PIX. Tente selecionar o texto manualmente.');
+                    });
+            });
 
-            prevScrollpos = currentScrollPos;
-        }
+
+            // --- LÓGICA DE ENVIO (AJAX) ---
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault(); 
+
+                setStatus("Enviando... Por favor, não feche a página.", false);
+                submitButton.disabled = true;
+                submitButton.textContent = "Aguarde..."; // Feedback visual
+
+                try {
+                    // Validação de Tamanho do Arquivo
+                    const file = comprovanteInput.files[0];
+                    if (file && file.size > MAX_FILE_SIZE_MB * 1024 * 1024) { 
+                        setStatus(`❌ O arquivo do comprovante é muito grande (máx. ${MAX_FILE_SIZE_MB}MB).`, true);
+                        submitButton.disabled = false;
+                        submitButton.textContent = "Enviar";
+                        return;
+                    }
+
+                    const formData = new FormData(form);
+
+                    // Envio via fetch (AJAX)
+                    const response = await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        body: formData 
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json(); 
+                        
+                        if (result.result === 'success') {
+                            setStatus('✅ Sucesso! Seu pedido foi recebido.', false);
+                            form.reset(); // Limpa o formulário após o sucesso
+                        } else {
+                            // Erro vindo do Apps Script
+                            setStatus(`❌ Erro no servidor: ${result.message || 'Falha ao processar.'}`, true);
+                        }
+                    } else {
+                        // Erro de conexão HTTP
+                        setStatus('❌ Erro de conexão. Verifique sua conexão.', true);
+                    }
+
+                } catch (error) {
+                    console.error('Erro de envio:', error);
+                    setStatus('❌ Falha crítica ao enviar. Verifique sua conexão.', true);
+                } finally {
+                    submitButton.disabled = false; 
+                    submitButton.textContent = "Enviar Pedido e Comprovante"; // Restaura o texto original
+                }
+            });
+
+            // --- LÓGICA DE UI (Scroll para esconder/mostrar o Header) ---
+            window.onscroll = function() {
+                if (!navBar) return; // Se não houver header, ignora
+
+                let currentScrollPos = window.pageYOffset;
+                if (window.innerWidth > 768) {
+                    if (prevScrollpos > currentScrollPos) {
+                        // ROLANDO PARA CIMA: Mostra o header
+                        navBar.style.top = "0";
+                    } else {
+                        // ROLANDO PARA BAIXO: Esconde o header
+                        navBar.style.top = `-${navHeight}px`;
+                    }
+                } else {
+                    // Em telas menores, garante que o header fique fixo no topo
+                    navBar.style.top = "0";
+                }
+                prevScrollpos = currentScrollPos;
+            }
+        });
     </script>
-    </body>
+</body>
 </html>
-
-
