@@ -81,17 +81,21 @@
                             style="width: 100%; padding: 8px; background: #2a2a2a; color: white; border: none; cursor: pointer; font-size: 1em; box-sizing: border-box; text-align: center;"
                             aria-label="Chave PIX para cópia">
                     <small id="pixCopyStatus" style="color: #ccc; display: block; margin-top: 5px; text-align: center;">
-                         Clique na chave PIX acima para copiar.
+                        Clique na chave PIX acima para copiar.
                     </small>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="comprovante">Comprovante de Pagamento (PNG ou PDF - máx 5MB):</label>
-                <input type="file" id="comprovante" name="Comprovante" accept=".png,.pdf,.jpg,.jpeg" required>
+                <label>Instrução do Comprovante:</label>
+                <div style="border: 1px solid #7a7a7a; padding: 10px; background-color: #383838; border-radius: 5px; margin-top: 5px;">
+                    <p style="margin-top: 0; color: #f0f0f0;">
+                        Após o pagamento via PIX, por favor, envie o comprovante para o e-mail: 
+                        <strong style="color: yellow;">tormenta.ufpe@gmail.com</strong>, mencionando seu nome completo.
+                    </p>
+                </div>
             </div>
-
-            <button type="submit" id="submitButton" class="submit-button">Enviar</button>
+            <button type="submit" id="submitButton" class="submit-button">Enviar Pedido</button>
         </form>
         
         <p id="statusMessage" style="margin-top: 20px; font-weight: bold;"></p>
@@ -102,24 +106,23 @@
     </a>
 
     <script>
-      
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyS8IEUWvGwtLcxvyrfX3o_HnI6Knt-0ZXvEwq9TMCroou4CNyc_8R3YhsVcu9VT5V65A/exec";
-        const MAX_FILE_SIZE_MB = 5;
-
-        document.addEventListener('DOMContentLoaded', () => {
         
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyS8IEUWvGwtLcxvyrfX3o_HnI6Knt-0ZXvEwq9TMCroou4CNyc_8R3YhsVcu9VT5V65A/exec";
+       
+        document.addEventListener('DOMContentLoaded', () => {
+            
             const form = document.getElementById('formCamisas');
             const submitButton = document.getElementById('submitButton');
             const statusMessage = document.getElementById('statusMessage');
-            const comprovanteInput = document.getElementById('comprovante');
+            // const comprovanteInput = document.getElementById('comprovante');
             const pixKeyInput = document.getElementById('pixKeyInput');
             const pixCopyStatus = document.getElementById('pixCopyStatus');
             
-          
+            
             const navBar = document.querySelector('header');
             const navHeight = navBar ? navBar.offsetHeight : 0;
             
-         
+            
             let prevScrollpos = window.pageYOffset;
 
             
@@ -128,7 +131,7 @@
                 statusMessage.style.color = isError ? 'red' : 'green';
             }
             
-       
+        
             pixKeyInput.addEventListener('click', () => {
                 navigator.clipboard.writeText(pixKeyInput.value)
                     .then(() => {
@@ -146,7 +149,7 @@
             });
 
 
-           
+            
             form.addEventListener('submit', async (e) => {
                 e.preventDefault(); 
 
@@ -156,17 +159,10 @@
 
                 try {
                     
-                    const file = comprovanteInput.files[0];
-                    if (file && file.size > MAX_FILE_SIZE_MB * 1024 * 1024) { 
-                        setStatus(`❌ O arquivo do comprovante é muito grande (máx. ${MAX_FILE_SIZE_MB}MB).`, true);
-                        submitButton.disabled = false;
-                        submitButton.textContent = "Enviar";
-                        return;
-                    }
-
+                  
                     const formData = new FormData(form);
-
-                   
+                    
+                    
                     const response = await fetch(SCRIPT_URL, {
                         method: 'POST',
                         body: formData 
@@ -176,7 +172,7 @@
                         const result = await response.json(); 
                         
                         if (result.result === 'success') {
-                            setStatus('✅ Sucesso! Seu pedido foi recebido.', false);
+                            setStatus('✅ Sucesso! Seu pedido foi recebido. Lembre-se de enviar o comprovante por email!', false);
                             form.reset(); 
                         } else {
                             
@@ -192,18 +188,18 @@
                     setStatus('❌ Falha crítica ao enviar. Verifique sua conexão.', true);
                 } finally {
                     submitButton.disabled = false; 
-                    submitButton.textContent = "Enviar";
+                    submitButton.textContent = "Enviar Pedido"; 
                 }
             });
 
-           
+            
             window.onscroll = function() {
                 if (!navBar) return;
 
                 let currentScrollPos = window.pageYOffset;
                 if (window.innerWidth > 768) {
                     if (prevScrollpos > currentScrollPos) {
-                       
+                        
                         navBar.style.top = "0";
                     } else {
                         
@@ -220,6 +216,3 @@
 </body>
 
 </html>
-
-
-
