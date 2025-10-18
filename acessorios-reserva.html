@@ -18,7 +18,7 @@
         <h1>Acessórios</h1>
         <p>Preencha o formulário abaixo para comprar seus acessórios. Entraremos em contato em breve para combinar a entrega.</p>
 
-        <form id="formAcessorios" method="POST" enctype="multipart/form-data">
+        <form id="formAcessorios" method="POST">
             
             <div class="form-group">
                 <label for="nome">Nome Completo:</label>
@@ -76,8 +76,9 @@
 
     <script>
         
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyS8IEUWvGwtLcxvyrfX3o_HnI6Knt-0ZXvEwq9TMCroou4CNyc_8R3YhsVcu9VT5V65A/exec";
-  
+       
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyS8IEUWvGwtLcxvyrfX3o_HnI6Knt-0ZXvEwq9TMCroou4CNyc_8R3YhsVcu9VT5V65A/exec"; 
+        
         const MAX_FILE_SIZE_MB = 5; 
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -124,6 +125,7 @@
                 submitButton.textContent = "Aguarde...";
 
 
+                try {
                     const formData = new FormData(form);
 
                     const response = await fetch(SCRIPT_URL, {
@@ -141,6 +143,7 @@
                             setStatus(`❌ Erro no servidor: ${result.message || 'Falha ao processar.'}`, true);
                         }
                     } else {
+                        // Este bloco deve resolver o erro 405 se a URL estiver correta!
                         setStatus('❌ Erro de conexão. Verifique sua URL ou a implantação.', true);
                     }
 
@@ -148,7 +151,7 @@
                     console.error('Erro de envio:', error);
                     setStatus('❌ Falha crítica ao enviar. Verifique sua conexão.', true);
                 } finally {
-                
+                    
                     submitButton.disabled = false; 
                     submitButton.textContent = "Enviar Pedido";
                 }
@@ -173,6 +176,4 @@
         });
     </script>
 </body>
-
 </html>
-
