@@ -20,7 +20,7 @@
             --cor-background-secao: #4a1336; 
         }
         
-        {
+        * {
             box-sizing: border-box; 
         }
 
@@ -86,10 +86,8 @@
             margin-bottom: 5px;
         }
 
-      
         .diretoria-grupo {
             display: grid;
-           
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin-bottom: 50px;
@@ -123,14 +121,11 @@
             margin-top: 5px;
         }
         
-       
         .coordenadoria-grid {
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
         }
 
-
-        
         .floating-back-button {
             position: fixed;
             bottom: 20px;
@@ -148,6 +143,7 @@
             text-decoration: none;
             font-size: 24px;
             transition: background-color 0.3s, transform 0.3s;
+            animation: fadeIn 0.5s ease-in-out;
         }
         
         .floating-back-button:hover {
@@ -155,16 +151,10 @@
             transform: scale(1.1);
         }
 
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        
-        .floating-back-button {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
   
         @media (max-width: 600px) {
              .container {
@@ -196,8 +186,8 @@
         <h2>Conselho Fiscal</h2>
         <div class="diretoria-grupo">
             <div class="membro-card">
-                <h3> </h3>
-                <p class="role-title">Conselheira</p>
+                <h3>Marcus</h3>
+                <p class="role-title">Conselheiro(a)</p>
                 <p class="description">Responsável pela fiscalização financeira e patrimonial da Atlética.</p>
             </div>
         </div>
@@ -208,49 +198,37 @@
             <div class="membro-card">
                 <h3>José Guilherme</h3>
                 <p class="role-title">Presidente</p>
-                <p class="description">Representa a Atlética, convoca e preside reuniões e coordena as atividades gerais.</p>
+                <p class="description">Representa a Atlética, convoca reuniões e coordena as diretrizes gerais da gestão.</p>
             </div>
 
             <div class="membro-card">
                 <h3>Mariana</h3>
                 <p class="role-title">Vice-Presidente</p>
-                <p class="description">Substitui o Presidente em ausências, auxilia em suas atividades e coordena projetos específicos.</p>
+                <p class="description">Gere as finanças, substitui o Presidente e coordena projetos estratégicos específicos.</p>
             </div>
 
             <div class="membro-card">
                 <h3>Alencar</h3>
                 <p class="role-title">Diretor de Eventos</p>
-                <p class="description">Planeja, organiza e coordena festas, confraternizações e eventos recreativos da Atlética.</p>
+                <p class="description">Planeja, organiza e coordena festas e eventos recreativos da Atlética.</p>
             </div>
 
             <div class="membro-card">
                 <h3>Felix</h3>
                 <p class="role-title">Diretor Sociocultural</p>
-                <p class="description">Organiza eventos de integração, atividades culturais e ações que promovem o convívio entre os membros.</p>
-            </div>
-
-            <div class="membro-card placeholder-card">
-                <h3>(A definir)</h3>
-                <p class="role-title">Diretor de Esportes</p>
-                <p class="description">Responsável por toda a estrutura esportiva, incluindo treinos, campeonatos, torneios e a supervisão da Coordenadoria de Modalidade.</p>
+                <p class="description">Organiza eventos de integração e ações que promovem o convívio entre os membros.</p>
             </div>
 
             <div class="membro-card">
-                <h3>Marcus</h3>
+                <h3>Pedro Phelipe</h3>
                 <p class="role-title">Diretor de Marketing</p>
-                <p class="description">Gerencia a imagem e a comunicação da Atlética, prospecta patrocínios e coordena os Diretores Auxiliares.</p>
-            </div>
-            
-            <div class="membro-card placeholder-card">
-                <h3>(A definir)</h3>
-                <p class="role-title">Diretor Auxiliar de Marketing</p>
-                <p class="description">As atribuições são as mesmas do Diretor de Marketing, limitadas às funções subordinadas diretamente a ele.</p>
+                <p class="description">Gerencia a comunicação visual, redes sociais e a prospecção de patrocínios.</p>
             </div>
             
         </div>
 
         <h2>Coordenadoria de Modalidade</h2>
-        <p class="description">Os responsáveis por supervisionar e organizar a respectiva modalidade esportiva.</p>
+        <p class="description">Responsáveis pela autonomia técnica, organização de treinos e gestão de atletas de cada categoria.</p>
         <div class="diretoria-grupo coordenadoria-grid">
             
             <div class="membro-card">
@@ -285,6 +263,4 @@
         <i class="fas fa-arrow-left"></i>
     </a>
 </body>
-
 </html>
-
