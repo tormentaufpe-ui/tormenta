@@ -111,7 +111,7 @@ section:hover {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
     transform: translateY(-5px);
 }
-h1, h2, h3 {
+h2, h3 {
     font-family: 'Oswald', sans-serif;
     color: var(--cor-secundaria);
     text-align: center;
