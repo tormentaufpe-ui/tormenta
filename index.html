@@ -4,147 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atlética Tormenta - Forjando a Imortalidade</title>
+
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css"> 
-    </head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
 <body>
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="tormenta_logo.png" alt="Logo Atlética Tormenta">
-            </a>
-        </div>
-         
-            <h1>Atlética Tormenta</h1>
-        
-        <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i> 
-        
-        <nav>
-            <ul>
-                <li><a href="estatuto.html">Estatuto</a></li>
-                <li><a href="diretoria.html">Diretoria</a></li>
-                <li><a href="reservas.html">Loja</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section id="historia">
-            <h2>Conheça a Tormenta</h2>
-            <p>A Atlética Tormenta nasceu da união de seis poderosas atléticas - Soberana, Thenebrosa, Reativa, Zangada, Invocados e Radioativa - oriundas do Centro de Tecnologia e Geociências (CTG), Departamento de Energia Nuclear (DEN) e do Departamento de Engenharia Química (DEQ), da Universidade Federal de Pernambuco (UFPE).</p>
-            <p>Nosso propósito é fortalecer o esporte universitário, integrar a comunidade acadêmica e representar com excelência nossos cursos e a instituição, forjando um legado de união e vitórias.</p>
-        </section>
+<section class="intro">
+    <img src="tormenta_logo.png" class="intro-logo">
+    <h1>Preparado para forjar seu nome na Atlética?</h1>
+    <p class="scroll-indicator">↓ Continue ↓</p>
+</section>
+<main>
 
-        <section id="identidade">
-            <h2>Identidade</h2>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <h3>Cores</h3>
-                    <p>Cada cor da Tormenta carrega um significado profundo:</p>
-                    <div class="color-palette">
-                        <div class="color-box color-black"></div>
-                        <span>Preto: Simboliza força inabalável e determinação.</span>
-                    </div>
-                    <div class="color-palette">
-                        <div class="color-box color-red-purple"></div>
-                        <span>Vermelho Púrpura: Representa a paixão, a realeza e a intensidade do esporte.</span>
-                    </div>
-                    <div class="color-palette">
-                        <div class="color-box color-yellow-ochre"></div>
-                        <span>Amarelo Ocre: Remete à energia, calor e à resiliência de nossa comunidade.</span>
-                    </div>
+    <!-- HISTÓRIA -->
+    <section id="historia" class="reveal">
+        <h2>Conheça a Tormenta</h2>
+        <p>A Atlética Tormenta nasceu da união de seis poderosas atléticas - Soberana, Tenebrosa, Reativa, Zangada, Invocados e Radioativa - oriundas do Centro de Tecnologia e Geociências (CTG), Departamento de Energia Nuclear (DEN) e do Departamento de Engenharia Química (DEQ), da Universidade Federal de Pernambuco (UFPE).</p>
+
+        <p>A Tormenta não nasce do acaso — ela é forjada. Aqui, transformamos esforço em glória, união em força e atletas em legado.</p>
+    </section>
+
+    <!-- IDENTIDADE -->
+    <section id="identidade" class="reveal">
+        <h2>Identidade</h2>
+
+        <div class="grid-container">
+
+            <div class="grid-item">
+                <h3>Cores</h3>
+
+                <div class="color-palette">
+                    <div class="color-box color-black"></div>
+                    <span>Preto: Força e determinação.</span>
                 </div>
-                <div class="grid-item">
-                    <h3>Mascote: Hefesto</h3>
-                    <div class="mascote-content">
-                        <img src="image_dbed3a.png" alt="Mascote Hefesto - Atlética Tormenta"> 
-                        <p>Hefesto, o deus grego da forja, é nosso poderoso mascote. Ele simboliza o trabalho árduo, a criação, a resiliência e a habilidade de transformar o bruto em algo valioso. Assim como Hefesto forja ferramentas e obras de arte, a Atlética Tormenta forja atletas e a união inquebrável de sua comunidade, construindo um futuro imortal.</p>
-                    </div>
+
+                <div class="color-palette">
+                    <div class="color-box color-red-purple"></div>
+                    <span>Púrpura: Paixão e intensidade.</span>
+                </div>
+
+                <div class="color-palette">
+                    <div class="color-box color-yellow-ochre"></div>
+                    <span>Dourado: Energia e grandeza.</span>
                 </div>
             </div>
-        </section>
-        
-      <!--  <section id="modalidades">
-    <h2>Modalidades:</h2>
-    <p class="section-subtitle">Onde o rugido da Tormenta se manifesta com raça.</p>
-    
-    <div class="modalidades-grid">
-        
-        <div class="modalidade-card">
-            <i class="fas fa-basketball-ball modalidade-icon"></i>
-            <h3>Basquete</h3>
-            <p>Representamos a Atlética com garra nas quadras. Venha treinar e fazer parte do nosso time de Basquete, tanto no feminino quanto no masculino!</p>
-            <a href="basquete.html" class="modalidade-link">Saiba mais</a>
+
+            <div class="grid-item">
+                <h3>Mascote: Hefesto 🔥</h3>
+                <div class="mascote-content">
+                    <img src="image_dbed3a.png">
+                    <p>Na forja de Hefesto, o fraco não resiste — apenas os imortais são moldados.</p>
+                </div>
+            </div>
+
         </div>
+    </section>
 
-        <div class="modalidade-card">
-            <i class="fas fa-futbol modalidade-icon"></i>
-            <h3>Futsal</h3>
-            <p>Velocidade e tática no salão. O Futsal é uma das modalidades mais tradicionais e vibrantes da Tormenta.</p>
-            <a href="futsal.html" class="modalidade-link">Saiba mais</a> </div>
+    <!-- MODALIDADES -->
+    <section id="modalidades" class="reveal">
+        <h2>Modalidades</h2>
+        <p class="section-subtitle">Onde o rugido da Tormenta se manifesta.</p>
 
-        <div class="modalidade-card">
-            <i class="fas fa-volleyball-ball modalidade-icon"></i>
-            <h3>Vôlei</h3>
-            <p>Bloqueios firmes e ataques fulminantes. Nossos times de Vôlei competem nos principais jogos universitários.</p>
-            <a href="volei.html" class="modalidade-link">Saiba mais</a> </div>
-        
-        <div class="modalidade-card">
-            <i class="fas fa-hand-paper modalidade-icon"></i>
-            <h3>Handebol</h3>
-            <p>Uma modalidade de contato e muita energia, onde a força da Tormenta é colocada à prova.</p>
-            <a href="handebol.html" class="modalidade-link">Saiba mais</a> </div>
-        
-    </div>
+        <div class="modalidades-grid">
 
-    <div class="modalidades-grid">
-        <div class="modalidade-card">
-            <i class="fas fa-running modalidade-icon"></i>
-            <h3>Atletismo</h3>
-            <p>Nossos atletas de Atletismo combinam velocidade e resistência em uma jornada de superação a cada prova na pista.</p>
-            <a href="atletismo.html" class="modalidade-link">Saiba mais</a> </div>
+            <div class="modalidade-card">
+                <i class="fas fa-basketball-ball modalidade-icon"></i>
+                <h3>Basquete</h3>
+            </div>
 
-        <div class="modalidade-card">
-            <i class="fas fa-gamepad modalidade-icon"></i>
-            <h3>E-Sports</h3>
-            <p>Onde a competição é virtual, a vitória é real. A Tormenta domina os servidores e tem equipes de eSports prontas para a glória.</p>
-            <a href="esports.html" class="modalidade-link">Saiba mais</a> </div>
-        
-    </div>
+            <div class="modalidade-card">
+                <i class="fas fa-futbol modalidade-icon"></i>
+                <h3>Futsal</h3>
+            </div>
+
+            <div class="modalidade-card">
+                <i class="fas fa-volleyball-ball modalidade-icon"></i>
+                <h3>Vôlei</h3>
+            </div>
+
+            <div class="modalidade-card">
+                <i class="fas fa-hand-paper modalidade-icon"></i>
+                <h3>Handebol</h3>
+            </div>
+
+            <div class="modalidade-card">
+                <i class="fas fa-running modalidade-icon"></i>
+                <h3>Atletismo</h3>
+            </div>
+
+            <div class="modalidade-card">
+                <i class="fas fa-gamepad modalidade-icon"></i>
+                <h3>E-Sports</h3>
+            </div>
+
+        </div>
+        <section class="menu-bloco">
+    <a href="estatuto.html" class="menu-card">
+        <i class="fas fa-scroll"></i>
+        <span>Estatuto</span>
+    </a>
+
+    <a href="diretoria.html" class="menu-card">
+        <i class="fas fa-users"></i>
+        <span>Diretoria</span>
+    </a>
+
+    <a href="reservas.html" class="menu-card">
+        <i class="fas fa-tshirt"></i>
+        <span>Loja</span>
+    </a>
 </section>
--->
-    </main>
+    </section>
 
-    <footer>
-        <h3>Faça parte da Tormenta</h3>
-        <p>Siga-nos nas redes sociais e fique por dentro de todas as novidades, eventos e conquistas!</p>
-        
-      
+</main>
 
-        <div class="social-links" aria-label="Navegação em redes sociais">
-            <a href="https://www.instagram.com/tormentaufpe" target="_blank" aria-label="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://chat.whatsapp.com/LlD8CotzczgAeFqXqhBVkF" target="_blank" aria-label="WhatsApp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-        </div>
-        
-        <p class="copyright">&copy; 2025 Atlética Tormenta. Todos os direitos reservados.</p>
-    </footer>
+<footer>
+    <h3>Faça parte da Tormenta</h3>
+    <p>Siga-nos e acompanhe tudo!</p>
 
-    <script>
-        function toggleMenu() {
-            const nav = document.querySelector('nav');
-            // Adiciona ou remove a classe 'open', que é controlada pelo CSS no mobile
-            nav.classList.toggle('open');
-        }
-    </script>
+    <div class="social-links">
+        <a href="https://www.instagram.com/tormentaufpe" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://chat.whatsapp.com/LlD8CotzczgAeFqXqhBVkF" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <p class="copyright">&copy; 2025 Atlética Tormenta</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('open');
+    }
+
+    function revealOnScroll() {
+        const elements = document.querySelectorAll('.reveal');
+
+        elements.forEach(el => {
+            const windowHeight = window.innerHeight;
+            const elementTop = el.getBoundingClientRect().top;
+
+            if (elementTop < windowHeight - 100) {
+                el.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+</script>
+
 </body>
 </html>
