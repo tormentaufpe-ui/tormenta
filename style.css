@@ -323,6 +323,7 @@ h3 { font-size: 1.8em; }
 }
 
 /* ESTILOS DO RODAPÉ ORGANIZADO */
+
 footer {
     background-color: var(--cor-background-secao);
     color: var(--cor-texto-claro);
@@ -362,7 +363,106 @@ footer p {
     margin-top: 10px;
     font-size: 0.9em;
 }
+.footer {
+    background: linear-gradient(180deg, #3a0e2a, #1a0612);
+    border-top: 2px solid var(--cor-secundaria);
+    padding-top: 50px;
+    margin-top: 80px;
+     box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
+}
+.footer::before {
+    content: "";
+    display: block;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    margin-bottom: 30px;
+}
 
+
+.footer-brand {
+    text-align: center;
+}
+
+.footer-brand img {
+    width: 50px;
+}
+.footer-container > div {
+    text-align: center;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+/* BRAND */
+.footer-brand img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.footer-brand h3 {
+    margin: 10px 0;
+    letter-spacing: 2px;
+}
+
+.footer-brand p {
+    opacity: 0.7;
+    font-size: 0.95em;
+}
+
+/* LINKS */
+.footer-links h4,
+.footer-contact h4 {
+    margin-bottom: 15px;
+    color: var(--cor-secundaria);
+}
+
+.footer-links a {
+    display: block;
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    margin-bottom: 8px;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--cor-secundaria);
+    transform: translateX(5px);
+}
+
+/* SOCIAL */
+.social-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    font-size: 24px;
+    color: var(--cor-secundaria);
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.2) rotate(5deg);
+    color: #f0c24f;
+}
+
+/* LINHA FINAL */
+.footer-bottom {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid rgba(212,175,55,0.2);
+    font-size: 0.9em;
+    opacity: 0.7;
+}
 /* ======================================================
 --- ESTILOS ESPECÍFICOS DA PÁGINA DE RESERVAS (reservas.html) ---
 ======================================================
