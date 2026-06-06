@@ -1039,3 +1039,368 @@ CORREÇÃO DEFINITIVA DO FOOTER NO MOBILE
         flex-wrap: wrap;
     }
 }
+/* =====================================
+LOJA
+===================================== */
+
+.loja-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.produto-card {
+    background: var(--cor-principal);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.produto-card:hover {
+    border-color: var(--cor-secundaria);
+    transform: translateY(-6px);
+}
+
+.produto-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.produto-card h3 {
+    margin: 20px 0 10px;
+}
+
+.preco {
+    color: var(--cor-secundaria);
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-comprar {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 12px 25px;
+    background: var(--cor-secundaria);
+    color: var(--cor-principal);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.btn-comprar:hover {
+    background: #f0c24f;
+    transform: scale(1.05);
+}
+
+/* =====================================
+PEDIDO
+===================================== */
+
+.pedido-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: var(--cor-background-secao);
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid var(--cor-secundaria);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.pedido-container h1 {
+    margin-bottom: 30px;
+}
+
+#pedidoForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#pedidoForm label {
+    font-weight: bold;
+    color: var(--cor-secundaria);
+}
+
+#pedidoForm input,
+#pedidoForm select,
+#pedidoForm textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    background: var(--cor-principal);
+    color: white;
+    font-size: 1rem;
+}
+
+#pedidoForm input:focus,
+#pedidoForm select:focus,
+#pedidoForm textarea:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+}
+
+#pixArea,
+#cartaoArea {
+    background: rgba(0,0,0,0.2);
+    border-left: 4px solid var(--cor-secundaria);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#pixArea strong {
+    display: block;
+    margin-top: 10px;
+    color: var(--cor-secundaria);
+    font-size: 1.2em;
+}
+
+.btn-pagar,
+#pedidoForm button {
+    background: var(--cor-secundaria);
+    color: var(--cor-principal);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-pagar:hover,
+#pedidoForm button:hover {
+    background: #f0c24f;
+    transform: scale(1.02);
+}
+
+/* =====================================
+RESPONSIVO
+===================================== */
+
+@media (max-width: 768px) {
+
+    .pedido-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .produto-card img {
+        height: 250px;
+    }
+
+    .preco {
+        font-size: 1.5em;
+    }
+}
+/* =====================================
+LOJA TORMENTA
+===================================== */
+
+.loja {
+    max-width: 1200px;
+    margin: 120px auto 50px;
+    padding: 20px;
+}
+
+.loja h1 {
+    margin-bottom: 40px;
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.produto-card {
+    background: var(--cor-background-secao);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: .3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,.4);
+}
+
+.produto-card:hover {
+    border-color: var(--cor-secundaria);
+    transform: translateY(-6px);
+}
+
+.produto-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.produto-card h3 {
+    margin: 20px 0 10px;
+}
+
+.preco {
+    color: var(--cor-secundaria);
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.produto-card button {
+    background: var(--cor-secundaria);
+    color: var(--cor-principal);
+    border: none;
+    padding: 12px 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.produto-card button:hover {
+    background: #f0c24f;
+    transform: scale(1.05);
+}
+
+/* =====================================
+FORMULÁRIO
+===================================== */
+
+.form-overlay,
+.pix-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.form-container,
+.pix-container {
+    width: 90%;
+    max-width: 500px;
+    background: var(--cor-background-secao);
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px solid var(--cor-secundaria);
+}
+
+.form-container h2,
+.pix-container h2 {
+    margin-top: 0;
+}
+
+#pedidoForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#pedidoForm input,
+#pedidoForm select {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+}
+
+#pedidoForm button {
+    background: var(--cor-secundaria);
+    color: var(--cor-principal);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#pedidoForm button:hover {
+    background: #f0c24f;
+}
+
+/* =====================================
+PIX
+===================================== */
+
+#resumoPedido {
+    background: rgba(255,255,255,.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#chavePix {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.pix-container button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    background: var(--cor-secundaria);
+    color: var(--cor-principal);
+}
+
+.pix-container button:hover {
+    background: #f0c24f;
+}
+
+.obs {
+    margin-top: 15px;
+    font-size: .9em;
+    opacity: .8;
+    text-align: center;
+}
+
+/* =====================================
+MOBILE
+===================================== */
+
+@media (max-width: 768px) {
+
+    .loja {
+        margin-top: 100px;
+        padding: 15px;
+    }
+
+    .produto-card img {
+        height: 250px;
+    }
+
+    .form-container,
+    .pix-container {
+        width: 95%;
+        padding: 20px;
+    }
+}
+.observacao-cartao{
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 193, 7, 0.15);
+    border-left: 4px solid #ffc107;
+    color: #ffc107;
+    font-weight: bold;
+    border-radius: 5px;
+}

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loja Tormenta</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<section class="loja">
+
+<h1>Loja Tormenta</h1>
+
+<div class="produtos-grid">
+
+    
+    <div class="produto-card">
+        <img src="camisa.png" alt="Camisa 1">
+
+        <h3>Camisa 1</h3>
+
+        <p class="preco">R$ 55,00</p>
+
+        <button onclick="abrirFormulario('Camisa 1')">
+            Comprar
+        </button>
+    </div>
+
+    
+    <div class="produto-card">
+        <img src="camisa2.png" alt="Camisa 2">
+
+        <h3>Camisa 2</h3>
+
+        <p class="preco">R$ 55,00</p>
+
+        <button onclick="abrirFormulario('Camisa 2')">
+            Comprar
+        </button>
+    </div>
+
+
+</div>
+
+
+</section>
+
+<!-- FORMULÁRIO -->
+
+<div id="formulario" class="form-overlay">
+
+
+<div class="form-container">
+
+    <h2>Finalizar Compra</h2>
+
+    <form id="pedidoForm">
+
+        <input type="text" id="produto" readonly>
+
+        <input
+            type="text"
+            id="nome"
+            placeholder="Seu nome"
+            required
+        >
+
+        <input
+            type="text"
+            id="curso"
+            placeholder="Curso / Período"
+        >
+
+        <input
+            type="tel"
+            id="whatsapp"
+            placeholder="WhatsApp"
+            required
+        >
+
+        <select id="tamanho" required>
+            <option value="">Tamanho</option>
+            <option>P</option>
+            <option>M</option>
+            <option>G</option>
+            <option>GG</option>
+        </select>
+
+        <select id="formaPagamento" required>
+            <option value="">Forma de pagamento</option>
+            <option value="pix">PIX</option>
+            <option value="cartao">Cartão de Crédito</option>
+        </select>
+
+        <button type="submit">
+            Continuar
+        </button>
+
+        <button
+            type="button"
+            onclick="fecharFormulario()"
+        >
+            Cancelar
+        </button>
+
+    </form>
+
+</div>
+
+</div>
+
+<!-- PIX -->
+
+<div id="pixBox" class="pix-overlay">
+
+<div class="pix-container">
+
+    <h2>Finalizar Pagamento</h2>
+
+    <p id="resumoPedido"></p>
+
+    <h3>Chave PIX</h3>
+
+    <input
+        type="text"
+        id="chavePix"
+        value="(79) 98869-0849"
+        readonly
+    >
+
+    <button onclick="copiarPix()">
+        Copiar chave PIX
+    </button>
+
+    <button onclick="confirmarPagamentoPix()">
+        Já paguei o PIX
+    </button>
+
+    <p class="obs">
+        Após o pagamento, envie o comprovante pelo WhatsApp.
+    </p>
+
+    <button onclick="fecharPix()">
+        Fechar
+    </button>
+
+    </div>
+</div>
+
+<!-- CARTÃO -->
+
+
+<div id="cartaoBox" class="pix-overlay">
+
+    <div class="pix-container">
+
+        <h2>Pagamento por Cartão</h2>
+
+        <p id="resumoCartao"></p>
+
+        <button onclick="abrirMercadoPago()">
+            Pagar com Cartão
+        </button>
+
+        <button onclick="confirmarPagamentoCartao()">
+            Já realizei o pagamento
+        </button>
+
+        <button onclick="fecharCartao()">
+            Fechar
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+const precos = {
+    "Camisa 1": "55,00",
+    "Camisa 2": "55,00"
+};
+
+let produtoSelecionado = "";
+
+function abrirFormulario(produto) {
+
+    produtoSelecionado = produto;
+
+    document.getElementById("produto").value = produto;
+
+    document.getElementById("formulario").style.display = "flex";
+}
+
+function fecharFormulario() {
+    document.getElementById("formulario").style.display = "none";
+}
+
+function fecharPix() {
+    document.getElementById("pixBox").style.display = "none";
+}
+
+function copiarPix() {
+
+    const pix =
+        document.getElementById("chavePix").value;
+
+    navigator.clipboard.writeText(pix);
+
+    alert("Chave PIX copiada!");
+}
+
+document.getElementById("pedidoForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const tamanho =
+        document.getElementById("tamanho").value;
+
+    const pagamento =
+        document.getElementById("formaPagamento").value;
+        const nome =
+    document.getElementById("nome").value;
+
+const curso =
+    document.getElementById("curso").value;
+
+const whatsapp =
+    document.getElementById("whatsapp").value;
+
+fetch("https://script.google.com/macros/s/AKfycbyR618Ho1b9Gaukky9KJwoOxkicx7GYanCCMr_rXEyXkp4EgA25gfSSU8F-mrJ6ojS1Vg/exec", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        produto: produtoSelecionado,
+        nome: nome,
+        curso: curso,
+        whatsapp: whatsapp,
+        tamanho: tamanho,
+        pagamento: pagamento
+    })
+})
+.then(response => console.log("Pedido salvo"))
+.catch(error => console.error(error));
+
+    document.getElementById("resumoPedido").innerHTML =
+    `
+    <strong>Produto:</strong> ${produtoSelecionado}<br>
+    <strong>Tamanho:</strong> ${tamanho}<br>
+    <strong>Valor:</strong> R$ ${precos[produtoSelecionado]}
+    `;
+
+   if (pagamento === "pix") {
+
+    fecharFormulario();
+
+    document.getElementById("pixBox").style.display = "flex";
+
+}
+else if (pagamento === "cartao") {
+
+    fecharFormulario();
+
+    document.getElementById("resumoCartao").innerHTML =
+    `
+    <strong>Produto:</strong> ${produtoSelecionado}<br>
+    <strong>Tamanho:</strong> ${tamanho}<br>
+    <strong>Valor:</strong> R$ ${precos[produtoSelecionado]}
+    <span class="observacao-cartao">
+⚠️ Observação: Possui acréscimo da taxa do Mercado Pago.
+</span>
+    `;
+
+    document.getElementById("cartaoBox").style.display = "flex";
+
+}
+else {
+
+    alert("Selecione uma forma de pagamento.");
+
+}
+
+});
+function abrirMercadoPago(){
+
+    window.open(
+        "https://mpago.la/1CZwStm",
+        "_blank"
+    );
+
+}
+
+function fecharCartao(){
+
+    document.getElementById("cartaoBox").style.display = "none";
+
+}
+
+function confirmarPagamentoCartao(){
+
+    const nome =
+        document.getElementById("nome").value;
+
+    const tamanho =
+        document.getElementById("tamanho").value;
+
+    const mensagem =
+`Pedido Loja Tormenta
+
+Nome: ${nome}
+Produto: ${produtoSelecionado}
+Tamanho: ${tamanho}
+Valor: R$ ${precos[produtoSelecionado]}
+
+
+Pagamento realizado por CARTÃO.`;
+
+    window.open(
+        `https://wa.me/5579988690849?text=${encodeURIComponent(mensagem)}`,
+        "_blank"
+    );
+
+}   
+
+function confirmarPagamentoPix(){
+
+    const tamanho =
+        document.getElementById("tamanho").value;
+
+    const nome =
+        document.getElementById("nome").value;
+
+    const mensagem =`Pedido Loja Tormenta
+
+Nome: ${nome}
+Produto: ${produtoSelecionado}
+Tamanho: ${tamanho}
+Valor: R$ ${precos[produtoSelecionado]}
+
+Pagamento PIX realizado.`;
+fetch("SUA_URL_DO_SCRIPT", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        produto: produtoSelecionado,
+        nome: nome,
+        curso: document.getElementById("curso").value,
+        whatsapp: document.getElementById("whatsapp").value,
+        tamanho: tamanho,
+        pagamento: "PIX"
+    })
+})
+.then(response => response.text())
+.then(data => {
+    console.log("Salvo:", data);
+})
+.catch(error => {
+    console.error("Erro:", error);
+});
+    window.open(
+        `https://wa.me/5579988690849?text=${encodeURIComponent(mensagem)}`,
+        "_blank"
+    );
+}
+
+</script>
+
+</body>
+</html>
