@@ -193,11 +193,8 @@ const precos = {
 let produtoSelecionado = "";
 
 function abrirFormulario(produto) {
-
     produtoSelecionado = produto;
-
     document.getElementById("produto").value = produto;
-
     document.getElementById("formulario").style.display = "flex";
 }
 
@@ -210,12 +207,8 @@ function fecharPix() {
 }
 
 function copiarPix() {
-
-    const pix =
-        document.getElementById("chavePix").value;
-
+    const pix = document.getElementById("chavePix").value;
     navigator.clipboard.writeText(pix);
-
     alert("Chave PIX copiada!");
 }
 
@@ -229,31 +222,33 @@ document.getElementById("pedidoForm")
 
     const pagamento =
         document.getElementById("formaPagamento").value;
-        const nome =
-    document.getElementById("nome").value;
 
-const curso =
-    document.getElementById("curso").value;
+    const nome =
+        document.getElementById("nome").value;
 
-const whatsapp =
-    document.getElementById("whatsapp").value;
+    const curso =
+        document.getElementById("curso").value;
 
-fetch("https://script.google.com/macros/s/AKfycbyR618Ho1b9Gaukky9KJwoOxkicx7GYanCCMr_rXEyXkp4EgA25gfSSU8F-mrJ6ojS1Vg/exec", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        produto: produtoSelecionado,
-        nome: nome,
-        curso: curso,
-        whatsapp: whatsapp,
-        tamanho: tamanho,
-        pagamento: pagamento
+    const whatsapp =
+        document.getElementById("whatsapp").value;
+
+    // Salva o pedido na planilha
+    const formData = new FormData();
+
+    formData.append("produto", produtoSelecionado);
+    formData.append("nome", nome);
+    formData.append("curso", curso);
+    formData.append("whatsapp", whatsapp);
+    formData.append("tamanho", tamanho);
+    formData.append("pagamento", pagamento);
+
+    fetch("https://script.google.com/macros/s/AKfycbxrJrbFW5D4MoDtBZknD6L3XvHzOSCxiaaFXds7fTxmQVNJmZCQAQiluQGRjhZi_uulsQ/exec", {
+        method: "POST",
+        body: formData
     })
-})
-.then(response => console.log("Pedido salvo"))
-.catch(error => console.error(error));
+    .then(response => response.text())
+    .then(data => console.log("Pedido salvo:", data))
+    .catch(error => console.error("Erro:", error));
 
     document.getElementById("resumoPedido").innerHTML =
     `
@@ -262,38 +257,40 @@ fetch("https://script.google.com/macros/s/AKfycbyR618Ho1b9Gaukky9KJwoOxkicx7GYan
     <strong>Valor:</strong> R$ ${precos[produtoSelecionado]}
     `;
 
-   if (pagamento === "pix") {
+    if (pagamento === "pix") {
 
-    fecharFormulario();
+        fecharFormulario();
 
-    document.getElementById("pixBox").style.display = "flex";
+        document.getElementById("pixBox").style.display = "flex";
 
-}
-else if (pagamento === "cartao") {
+    }
+    else if (pagamento === "cartao") {
 
-    fecharFormulario();
+        fecharFormulario();
 
-    document.getElementById("resumoCartao").innerHTML =
-    `
-    <strong>Produto:</strong> ${produtoSelecionado}<br>
-    <strong>Tamanho:</strong> ${tamanho}<br>
-    <strong>Valor:</strong> R$ ${precos[produtoSelecionado]}
-    <span class="observacao-cartao">
-⚠️ Observação: Possui acréscimo da taxa do Mercado Pago.
-</span>
-    `;
+        document.getElementById("resumoCartao").innerHTML =
+        `
+        <strong>Produto:</strong> ${produtoSelecionado}<br>
+        <strong>Tamanho:</strong> ${tamanho}<br>
+        <strong>Valor:</strong> R$ ${precos[produtoSelecionado]}<br><br>
 
-    document.getElementById("cartaoBox").style.display = "flex";
+        <span class="observacao-cartao">
+        ⚠️ Observação: Possui acréscimo da taxa do Mercado Pago.
+        </span>
+        `;
 
-}
-else {
+        document.getElementById("cartaoBox").style.display = "flex";
 
-    alert("Selecione uma forma de pagamento.");
+    }
+    else {
 
-}
+        alert("Selecione uma forma de pagamento.");
+
+    }
 
 });
-function abrirMercadoPago(){
+
+function abrirMercadoPago() {
 
     window.open(
         "https://mpago.la/1CZwStm",
@@ -302,13 +299,13 @@ function abrirMercadoPago(){
 
 }
 
-function fecharCartao(){
+function fecharCartao() {
 
     document.getElementById("cartaoBox").style.display = "none";
 
 }
 
-function confirmarPagamentoCartao(){
+function confirmarPagamentoCartao() {
 
     const nome =
         document.getElementById("nome").value;
@@ -324,7 +321,6 @@ Produto: ${produtoSelecionado}
 Tamanho: ${tamanho}
 Valor: R$ ${precos[produtoSelecionado]}
 
-
 Pagamento realizado por CARTÃO.`;
 
     window.open(
@@ -332,9 +328,9 @@ Pagamento realizado por CARTÃO.`;
         "_blank"
     );
 
-}   
+}
 
-function confirmarPagamentoPix(){
+function confirmarPagamentoPix() {
 
     const tamanho =
         document.getElementById("tamanho").value;
@@ -342,7 +338,8 @@ function confirmarPagamentoPix(){
     const nome =
         document.getElementById("nome").value;
 
-    const mensagem =`Pedido Loja Tormenta
+    const mensagem =
+`Pedido Loja Tormenta
 
 Nome: ${nome}
 Produto: ${produtoSelecionado}
@@ -350,34 +347,16 @@ Tamanho: ${tamanho}
 Valor: R$ ${precos[produtoSelecionado]}
 
 Pagamento PIX realizado.`;
-fetch("SUA_URL_DO_SCRIPT", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        produto: produtoSelecionado,
-        nome: nome,
-        curso: document.getElementById("curso").value,
-        whatsapp: document.getElementById("whatsapp").value,
-        tamanho: tamanho,
-        pagamento: "PIX"
-    })
-})
-.then(response => response.text())
-.then(data => {
-    console.log("Salvo:", data);
-})
-.catch(error => {
-    console.error("Erro:", error);
-});
+
     window.open(
         `https://wa.me/5579988690849?text=${encodeURIComponent(mensagem)}`,
         "_blank"
     );
+
 }
 
 </script>
+
 
 </body>
 </html>
