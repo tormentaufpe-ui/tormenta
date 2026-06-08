@@ -84,6 +84,19 @@
             placeholder="WhatsApp"
             required
         >
+<input
+    type="text"
+    id="nomeCamisa"
+    placeholder="Nome na camisa"
+>
+
+<input
+    type="number"
+    id="numeroCamisa"
+    placeholder="Número da camisa"
+    min="0"
+    max="99"
+>
 
         <select id="tamanho" required>
             <option value="">Tamanho</option>
@@ -231,7 +244,11 @@ document.getElementById("pedidoForm")
     const whatsapp =
         document.getElementById("whatsapp").value;
 
-    
+    const nomeCamisa =
+    document.getElementById("nomeCamisa").value;
+
+const numeroCamisa =
+    document.getElementById("numeroCamisa").value;
     const formData = new FormData();
 
     formData.append("produto", produtoSelecionado);
@@ -240,7 +257,8 @@ document.getElementById("pedidoForm")
     formData.append("whatsapp", whatsapp);
     formData.append("tamanho", tamanho);
     formData.append("pagamento", pagamento);
-
+formData.append("nomeCamisa", nomeCamisa);
+formData.append("numeroCamisa", numeroCamisa);
     fetch("https://script.google.com/macros/s/AKfycbxrJrbFW5D4MoDtBZknD6L3XvHzOSCxiaaFXds7fTxmQVNJmZCQAQiluQGRjhZi_uulsQ/exec", {
         method: "POST",
         body: formData
@@ -250,11 +268,13 @@ document.getElementById("pedidoForm")
     .catch(error => console.error("Erro:", error));
 
     document.getElementById("resumoPedido").innerHTML =
-    `
-    <strong>Produto:</strong> ${produtoSelecionado}<br>
-    <strong>Tamanho:</strong> ${tamanho}<br>
-    <strong>Valor:</strong> R$ ${precos[produtoSelecionado]}
-    `;
+`
+<strong>Produto:</strong> ${produtoSelecionado}<br>
+<strong>Tamanho:</strong> ${tamanho}<br>
+<strong>Nome:</strong> ${nomeCamisa}<br>
+<strong>Número:</strong> ${numeroCamisa}<br>
+<strong>Valor:</strong> R$ ${precos[produtoSelecionado]}
+`;
 
     if (pagamento === "pix") {
 
@@ -268,15 +288,17 @@ document.getElementById("pedidoForm")
         fecharFormulario();
 
         document.getElementById("resumoCartao").innerHTML =
-        `
-        <strong>Produto:</strong> ${produtoSelecionado}<br>
-        <strong>Tamanho:</strong> ${tamanho}<br>
-        <strong>Valor:</strong> R$ ${precos[produtoSelecionado]}<br><br>
+`
+<strong>Produto:</strong> ${produtoSelecionado}<br>
+<strong>Tamanho:</strong> ${tamanho}<br>
+<strong>Nome:</strong> ${nomeCamisa}<br>
+<strong>Número:</strong> ${numeroCamisa}<br>
+<strong>Valor:</strong> R$ ${precos[produtoSelecionado]}<br><br>
 
-        <span class="observacao-cartao">
-        ⚠️ Observação: Possui acréscimo da taxa do Mercado Pago.
-        </span>
-        `;
+<span class="observacao-cartao">
+⚠️ Observação: Possui acréscimo da taxa do Mercado Pago.
+</span>
+`;
 
         document.getElementById("cartaoBox").style.display = "flex";
 
@@ -306,18 +328,20 @@ function fecharCartao() {
 
 function confirmarPagamentoCartao() {
 
-    const nome =
-        document.getElementById("nome").value;
+    const nomeCamisa =
+    document.getElementById("nomeCamisa").value;
 
-    const tamanho =
-        document.getElementById("tamanho").value;
+const numeroCamisa =
+    document.getElementById("numeroCamisa").value;
 
-    const mensagem =
+const mensagem =
 `Pedido Loja Tormenta
 
 Nome: ${nome}
 Produto: ${produtoSelecionado}
 Tamanho: ${tamanho}
+Nome na camisa: ${nomeCamisa}
+Número na camisa: ${numeroCamisa}
 Valor: R$ ${precos[produtoSelecionado]}
 
 Pagamento realizado por CARTÃO.`;
@@ -331,18 +355,20 @@ Pagamento realizado por CARTÃO.`;
 
 function confirmarPagamentoPix() {
 
-    const tamanho =
-        document.getElementById("tamanho").value;
+    const nomeCamisa =
+    document.getElementById("nomeCamisa").value;
 
-    const nome =
-        document.getElementById("nome").value;
+const numeroCamisa =
+    document.getElementById("numeroCamisa").value;
 
-    const mensagem =
+const mensagem =
 `Pedido Loja Tormenta
 
 Nome: ${nome}
 Produto: ${produtoSelecionado}
 Tamanho: ${tamanho}
+Nome na camisa: ${nomeCamisa}
+Número na camisa: ${numeroCamisa}
 Valor: R$ ${precos[produtoSelecionado]}
 
 Pagamento PIX realizado.`;
