@@ -327,14 +327,13 @@ function fecharCartao() {
 }
 
 function confirmarPagamentoCartao() {
+    // Captura os valores atualizados dos elementos do formulário
+    const nome = document.getElementById("nome").value;
+    const tamanho = document.getElementById("tamanho").value;
+    const nomeCamisa = document.getElementById("nomeCamisa").value;
+    const numeroCamisa = document.getElementById("numeroCamisa").value;
 
-    const nomeCamisa =
-    document.getElementById("nomeCamisa").value;
-
-const numeroCamisa =
-    document.getElementById("numeroCamisa").value;
-
-const mensagem =
+    const mensagem =
 `Pedido Loja Tormenta
 
 Nome: ${nome}
@@ -350,18 +349,16 @@ Pagamento realizado por CARTÃO.`;
         `https://wa.me/5581989766789?text=${encodeURIComponent(mensagem)}`,
         "_blank"
     );
-
 }
 
 function confirmarPagamentoPix() {
+    // Captura os valores atualizados dos elementos do formulário
+    const nome = document.getElementById("nome").value;
+    const tamanho = document.getElementById("tamanho").value;
+    const nomeCamisa = document.getElementById("nomeCamisa").value;
+    const numeroCamisa = document.getElementById("numeroCamisa").value;
 
-    const nomeCamisa =
-    document.getElementById("nomeCamisa").value;
-
-const numeroCamisa =
-    document.getElementById("numeroCamisa").value;
-
-const mensagem =
+    const mensagem =
 `Pedido Loja Tormenta
 
 Nome: ${nome}
@@ -377,8 +374,8 @@ Pagamento PIX realizado.`;
         `https://wa.me/5581989766789?text=${encodeURIComponent(mensagem)}`,
         "_blank"
     );
-
 }
+
 
 </script>
 
